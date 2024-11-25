@@ -1,12 +1,24 @@
-.navbar-lewagon {
+#navbar {
   justify-content: space-between;
-  background: white;
-}
+  background-color: $green;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  h4 {
+    padding-top: 4px;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .header-bold {
+    color: $yellow;
+    font-size: 32px;
+    flex-grow: 1
+  }
+
+  a {
+    color: $yellow;
+  }
+
+  ul {
+    list-style: none;
+    text-decoration: none;
+    display: inline-block;
+  }
 }
