@@ -1,1 +1,31 @@
-// Specific CSS for your home-page
+.main-container {
+  background-color: #FFED80;
+  height: 100vh;
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.start-btn {
+  width: 200px;
+  height: 40px;
+  text-decoration: none;
+  border-radius: 21px;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  line-height: 50%;
+}
+
+#learn-more {
+  background-color: white;
+}
+#start {
+  color: white !important;
+}
