@@ -1,0 +1,30 @@
+.button-green {
+  font-family: $headers-font;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #fff;
+  color: $green;
+  padding: 10px 30px;
+  border-radius: 20px;
+
+  &:hover {
+    border-radius: 0px;
+    transition: .2s;
+  }
+}
+
+.button-purple {
+  font-family: $headers-font;
+  font-weight: 600;
+  font-size: 24px;
+  background-color: $purple;
+  color: #fff;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 30px;
+
+  &:hover {
+    border-radius: 0px;
+    transition: .2s;
+  }
+}

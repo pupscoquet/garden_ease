@@ -1,5 +1,5 @@
 .main-container {
-  background-color: #FFED80;
+  background-color: $yellow;
   height: 100vh;
   position: relative;
 }
@@ -12,20 +12,26 @@
   text-align: center;
 }
 
-.start-btn {
-  width: 200px;
-  height: 40px;
-  text-decoration: none;
-  border-radius: 21px;
-  display: inline-block;
-  text-align: center;
-  justify-content: center;
-  line-height: 50%;
+.main-title {
+  position: relative;
 }
+
+.welcome {
+  position:absolute;
+  top:0%;
+  left: 12%;
+  font-size: 40px;
+}
+
 
 #learn-more {
   background-color: white;
+  margin: 15px;
+  width: 300px;
 }
 #start {
   color: white !important;
+  background-color: $green;
+  margin: 15px;
+  width: 300px;
 }
