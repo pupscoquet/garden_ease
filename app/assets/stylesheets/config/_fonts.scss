@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +12,50 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+$body-font: "Archivo", "Helvetica", "sans-serif";
+$headers-font: "Clash Display", "Helvetica", "sans-serif";
+
+h1 {
+  font-size: 140px !important;
+}
+
+h2 {
+  font-size: 100px !important;
+}
+
+h3 {
+  font-size: 64px !important;
+}
+
+.header-black {
+  font-weight: 700;
+}
+
+.header-bold {
+  font-weight: 600;
+}
+
+.header-medium {
+  font-weight: 500;
+}
+
+.header-regular {
+  font-weight: 300;
+}
+
+.header-light {
+  font-weight: 200;
+}
+
+.body-bold {
+  font-weight: 600;
+}
+
+.body-regular {
+  font-weight: 400;
+}
+
+.body-light {
+  font-weight: 200;
+}
