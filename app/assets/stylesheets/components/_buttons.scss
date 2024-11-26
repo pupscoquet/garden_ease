@@ -6,11 +6,32 @@
   color: $green;
   padding: 10px 30px;
   border-radius: 20px;
+  transition: color .5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 
   &:hover {
-    border-radius: 0px;
-    transition: .2s;
+    color: #fff;
   }
+
+  &:before {
+    width: 0;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: $green;
+    position: absolute;
+    transition: .5s;
+    border-radius: 20px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
 }
 
 .button-purple {
@@ -22,9 +43,30 @@
   padding: 8px 30px;
   border: none;
   border-radius: 30px;
+  transition: color .5s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 
   &:hover {
-    border-radius: 0px;
-    transition: .2s;
+    color: $purple;
   }
+
+  &:before {
+    width: 0;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    transition: .5s;
+    border-radius: 20px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
 }
