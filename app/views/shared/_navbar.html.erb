@@ -15,11 +15,17 @@
         <div class="dropdown">
           <button class="dropbtn">Account</button>
           <div class="dropdown-content">
-            <%= link_to new_user_session_path do %>
-              <p class="option">Login</p>
-            <% end %>
-            <%= link_to "#" do %>
-              <p class="option">My projects</p>
+            <% if user_signed_in? %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <p class="option">Sign out</p>
+              <% end %>
+              <%= link_to "#" do %>
+                <p class="option">My projects</p>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+                <p class="option">Sign in</p>
+              <% end %>
             <% end %>
           </div>
         </div>
