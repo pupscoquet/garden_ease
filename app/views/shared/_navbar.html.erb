@@ -1,19 +1,34 @@
 <div class="navbar navbar-expand-sm" id="navbar">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to home_path, class: "navbar-brand" do %>
       <h4 class="header-bold">GardenEase</h4>
     <% end %>
 
     <ul>
       <li>
-        <%= link_to new_user_session_path do %>
-          <p>Login</p>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to '#' do %>
+        <%= link_to about_path do %>
           <p>About</p>
         <% end %>
+      </li>
+
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn">Account</button>
+          <div class="dropdown-content">
+            <% if user_signed_in? %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <p class="option">Sign out</p>
+              <% end %>
+              <%= link_to "#" do %>
+                <p class="option">My projects</p>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+                <p class="option">Sign in</p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
