@@ -1,4 +1,46 @@
-// Specific CSS for your home-page
-body {
+.main-container {
   background-color: $yellow;
+  height: 100vh;
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main-title {
+  position: relative;
+}
+
+.welcome {
+  position:absolute;
+  top:0%;
+  left: 12%;
+  font-size: 40px;
+}
+
+.line {
+  margin: 0;
+}
+
+.presentation {
+  margin-top:10px;
+  margin-bottom: 50px;
+}
+
+
+#learn-more {
+  background-color: white;
+  margin: 15px;
+  width: 300px;
+}
+#start {
+  color: white !important;
+  background-color: $green;
+  margin: 15px;
+  width: 300px;
 }
