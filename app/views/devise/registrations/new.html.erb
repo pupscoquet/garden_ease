@@ -9,21 +9,23 @@
                 autofocus: true,
                 input_html: { autocomplete: "first-name" },
                 class: "input",
-                placeholder: "Name" %>
+                placeholder: "Name..." %>
     <%= f.input :last_name,
                 required: false,
                 input_html: { autocomplete: "last-name"},
                 class: "input",
-                placeholder: "Last name" %>
+                placeholder: "Last name..." %>
    <%= f.input :city,
                 required: false,
                 input_html: { autocomplete: "city..."},
                 class: "input",
-                placeholder: "City" %>
-    <%= f.input :email,
+                placeholder: "City..." %>
+   <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email" },
+                class: "input",
+                placeholder: "Garden@ease.com" %>
     <%= f.input :password,
                 required: false,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -36,6 +38,9 @@
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
+  <div class="login-link" style="margin-top: 10px;">
+    <a href="/users/sign_in">Log in</a>
+  </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%# <%= render "devise/shared/links" %>
