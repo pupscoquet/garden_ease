@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_26_150215) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_27_153022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_150215) do
     t.datetime "updated_at", null: false
     t.string "selected_benefits", default: [], array: true
     t.string "selected_spaces", default: [], array: true
+    t.text "content"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

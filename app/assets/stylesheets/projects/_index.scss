@@ -2,15 +2,19 @@
   position: absolute;
   top: 10%;
   left: 10%;
-  width: 900px;
+  width: 80%;
   .projects{
     font-size: 120px !important;
   }
 }
 
 .project-cards {
-  justify-content: space-between;
-
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width: 1250px;
+    margin: 10px auto;
+    padding: 20px;
+    gap: 20px;
  }
 
 .projects-ul{
@@ -20,13 +24,31 @@
 }
 
 .projects-li {
-  width: 25%px;
-  height: 200px;
+  height: 250px;
   margin: 10px;
-
+  text-align: center;
+  border: 2px solid $green;
+  box-shadow: 1.5px 1.5px 1px rgba(1, 81, 29, 0.238);
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  &:hover {
+    transform: scale(1.05);
+    transition: .3s;
+  }
 }
 
 .btn-project {
   text-decoration: none;
   color: black;
+  &:hover {
+    color: $green;
+  }
+}
+
+.plant-item {
+  width: 100px;
+  margin: 10px;
 }
