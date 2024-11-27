@@ -1,0 +1,30 @@
+.selected-title {
+  margin-top: 12px;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.selected-form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.checkbox {
+  position: absolute;
+  transform: scale(0);
+
+  + label {
+    cursor: pointer;
+    font-family: $headers-font;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #fff;
+    color: $green;
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin: 4px 2px;
+  }
+}

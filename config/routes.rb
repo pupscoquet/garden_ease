@@ -10,4 +10,12 @@ Rails.application.routes.draw do
   get "about", to: "pages#about", as: :about
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # benefits
+  get "benefits/new", to: "benefits#new", as: :benefits
+  post "benefits", to: "benefits#create", as: :selected_benefits
+
+  # spaces
+  get "spaces/new", to: "spaces#new", as: :spaces
+  post "spaces", to: "spaces#create", as: :selected_spaces
 end
