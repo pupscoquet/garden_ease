@@ -14,8 +14,13 @@
   }
 
   a {
-    color: $yellow;
+    color: #fff;
     text-decoration: none;
+
+    &:hover {
+      color: $yellow;
+      transition: .2s ease-in-out;
+    }
   }
 
   ul {

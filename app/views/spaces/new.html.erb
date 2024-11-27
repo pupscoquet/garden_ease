@@ -1,0 +1,12 @@
+<h3>What's your space like?</h3>
+<p>So we can help you make the most of it</p>
+
+<%= form_with url: "/spaces" do |form| %>
+  <fieldset>
+    <% @spaces.order(:type_of_space).each do |space| %>
+      <%= check_box_tag 'selected_spaces[]', space.id, class: "checkbox" %>
+      <%= label_tag 'selected_spaces[]', space.type_of_space %>
+    <% end %>
+  </fieldset>
+  <%= submit_tag "Next" %>
+<% end %>
