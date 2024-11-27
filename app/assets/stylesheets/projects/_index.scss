@@ -1,0 +1,32 @@
+.my-projects{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 900px;
+  .projects{
+    font-size: 120px !important;
+  }
+}
+
+.project-cards {
+  justify-content: space-between;
+
+ }
+
+.projects-ul{
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.projects-li {
+  width: 25%px;
+  height: 200px;
+  margin: 10px;
+
+}
+
+.btn-project {
+  text-decoration: none;
+  color: black;
+}
