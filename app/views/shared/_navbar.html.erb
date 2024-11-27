@@ -17,14 +17,14 @@
           <div class="dropdown-content">
             <% if user_signed_in? %>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <p class="option">Sign out</p>
+                <p class="option btn button-purple">Sign out</p>
               <% end %>
               <%= link_to "#" do %>
-                <p class="option">My projects</p>
+                <p class="option btn button-purple">My projects</p>
               <% end %>
             <% else %>
               <%= link_to new_user_session_path do %>
-                <p class="option">Sign in</p>
+                <p class="option btn">Sign in</p>
               <% end %>
             <% end %>
           </div>
