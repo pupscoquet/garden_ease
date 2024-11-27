@@ -1,10 +1,14 @@
 <div class="main-container">
   <div class="my-projects">
     <h1 class="projects">My projects</h1>
+
     <div class="project-cards">
       <%@projects.each do |project|%>
         <ul class="projects-ul">
-          <li class="projects-li"><%= link_to project.name, project_path(project), class:"btn-project" %></li>
+          <li class="projects-li">
+            <img class="plant-item"src="<%= asset_url("plant.png")%>" alt="plant">
+            <%= link_to project.name, project_path(project), class:"btn-project" %>
+          </li>
         </ul>
       <%end%>
     </div>
