@@ -9,9 +9,10 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/navbar";
 @import "pages/index";
 @import "pages/home";
-@import "pages/home";
+@import "pages/about";
 
 body {
   background-color: $yellow;

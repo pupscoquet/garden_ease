@@ -1,0 +1,35 @@
+.about {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 560px;
+  .about-us{
+    font-size:120px !important;
+  }
+  #about{
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+  .plant {
+    width: 300px;
+    position: absolute;
+    left: 900px;
+    top: 20%;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .plant {
+    position: absolute;
+    left: 800px;
+    top: 20%;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .plant {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 #navbar {
   justify-content: space-between;
   background-color: $green;
-  height: 70px !important;
+  height: 70px;
 
   h4 {
     padding-top: 4px;
@@ -35,4 +35,57 @@
     align-self: center;
     margin-top: 30px;
   }
+
+  .dropbtn {
+    background-color: $green;
+    color: $yellow;
+    padding: 0px;
+    padding-bottom: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 5px;
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    padding: 0;
+    text-decoration: none;
+    display: block;
+    width: 100px;
+    text-align: right;
+  }
+
+  .option {
+    font-size: 16px !important;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    color: $purple;
+    font-weight: bold;
+  }
+
+  .option:hover {
+    color: $green;
+  }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block !important;
+  }
+
 }
