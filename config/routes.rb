@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   #projects
-  resources :projects
+  resources :projects, only: [:index, :show, :new, :destroy, :create]
 
   # benefits
   get "benefits/new", to: "benefits#new", as: :benefits
