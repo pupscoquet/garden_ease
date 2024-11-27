@@ -1,6 +1,12 @@
-<h1>Hello</h1>
-<%@projects.each do |project|%>
-  <ul>
-    <li><%= link_to project.name, project_path(project) %></li>
-  </ul>
-<%end%>
+<div class="main-container">
+  <div class="my-projects">
+    <h1 class="projects">My projects</h1>
+    <div class="project-cards">
+      <%@projects.each do |project|%>
+        <ul class="projects-ul">
+          <li class="projects-li"><%= link_to project.name, project_path(project), class:"btn-project" %></li>
+        </ul>
+      <%end%>
+    </div>
+  </div>
+</div>
