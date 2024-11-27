@@ -61,7 +61,7 @@
     padding: 0;
     text-decoration: none;
     display: block;
-    width: 100px;
+    width: 150px;
     text-align: right;
   }
 
@@ -72,6 +72,7 @@
     border-radius: 20px;
     color: $purple;
     font-weight: bold;
+    margin-bottom: 3px;
   }
 
   .option:hover {

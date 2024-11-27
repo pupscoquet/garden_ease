@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "users/projects/:id", to: "projects@view", as: :project
+  resources :projects
 end
