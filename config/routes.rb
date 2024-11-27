@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "about", to: "pages#about", as: :about
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "users/projects/:id", to: "projects@view", as: :project
 end
