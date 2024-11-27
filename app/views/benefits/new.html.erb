@@ -1,5 +1,5 @@
 <section class="selected-title">
-  <h3>What's your gardening goal?</h3>
+  <h3>What's your goal?</h3>
   <p>Choose what you'd like to get out of your space</p>
 </section>
 
@@ -7,12 +7,13 @@
   <%= form_with url: "/benefits" do |form| %>
     <fieldset>
       <% @benefits.order(:type_of_benefit).each do |benefit| %>
-        <%= check_box_tag 'selected_benefits[]', benefit.id, class: "checkbox" %>
-        <%# first is the params that gets sent to controller %>
-        <%# second is what's displayed in the view %>
-        <%= label_tag 'selected_benefits[]', benefit.type_of_benefit %>
+          <% unique_id = "benefit_#{benefit.id}" %>
+          <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
+          <%# first is the params that gets sent to controller %>
+          <%# second is what's displayed in the view %>
+          <%= label_tag unique_id, benefit.type_of_benefit %>
       <% end %>
     </fieldset>
-    <%= submit_tag "Next" %>
+    <%= submit_tag "Next", class: "button-purple selected-btn" %>
   <% end %>
 </section>

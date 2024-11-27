@@ -1,15 +1,15 @@
 .selected-title {
-  margin-top: 12px;
+  margin-top: 40px !important;
   text-align: center;
   width: 70%;
   margin: 0 auto;
 }
 
 .selected-form {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
+  margin-top: 40px !important;
+  text-align: center;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .checkbox {
@@ -25,6 +25,34 @@
     color: $green;
     padding: 10px 30px;
     border-radius: 20px;
-    margin: 4px 2px;
+    margin: 8px 4px;
+  }
+
+  &:hover + label {
+    background-color: $green;
+    color: #fff;
+    opacity: 80%;
+    transition: .3s ease;
+  }
+
+  &:checked + label {
+    font-family: $headers-font;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: $green;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+  }
+}
+
+.selected-btn {
+  max-width: 150px;
+  margin-top: 40px;
+
+  &:hover {
+    background-color: #fff;
+    color: $purple;
+    transition: .3s ease;
   }
 }
