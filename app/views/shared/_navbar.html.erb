@@ -16,7 +16,7 @@
           <button class="dropbtn">Account</button>
           <div class="dropdown-content">
             <% if user_signed_in? %>
-              <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
                 <p class="option btn button-purple">Sign out</p>
               <% end %>
               <%= link_to "#" do %>
