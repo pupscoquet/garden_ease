@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  #projects
+  resources :projects
+
   # benefits
   get "benefits/new", to: "benefits#new", as: :benefits
   post "benefits", to: "benefits#create", as: :selected_benefits
