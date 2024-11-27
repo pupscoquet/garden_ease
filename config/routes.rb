@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "about", to: "pages#about", as: :about
+  # get "sign_out", to: "/users/sign_out"
   # Defines the root path route ("/")
   # root "posts#index"
 
