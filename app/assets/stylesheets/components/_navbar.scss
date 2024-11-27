@@ -52,45 +52,35 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    right: 2px;
-    background-color: $green;
-    border: 1px, solid, $yellow;
-    border-radius: 2px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 5px;
     z-index: 1;
-    width: 120px;
   }
 
   /* Links inside the dropdown */
   .dropdown-content a {
-    color: $yellow;
-    padding: 5px 10px;
+    padding: 0;
     text-decoration: none;
     display: block;
-    margin-right: 0px;
+    width: 100px;
+    text-align: right;
   }
 
   .option {
-    margin-bottom: 0;
-    margin-right: 0px;
+    font-size: 16px !important;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 20px;
+    color: $purple;
+    font-weight: bold;
   }
 
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: $yellow;
+  .option:hover {
     color: $green;
-    transition: .3s;
   }
 
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
     display: block !important;
-  }
-
-
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-    background-color: $green;
   }
 
 }
