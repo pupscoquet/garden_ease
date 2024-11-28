@@ -2,15 +2,24 @@
   <div class="my-projects">
     <h1 class="projects">My projects</h1>
 
-    <div class="project-cards">
-      <%@projects.each do |project|%>
-        <ul class="projects-ul">
-          <li class="projects-li">
-            <img class="plant-item"src="<%= asset_url("plant.png")%>" alt="plant">
-            <%= link_to project.name, project_path(project), class:"btn-project" %>
-          </li>
-        </ul>
-      <%end%>
+    <% if @project.nil? %>
+      <div class="no-project">
+        <p>You don't have any project yet.</p>
+        <p>Create your first project!</p>
+        <img class="plant" src="<%= asset_url("plant2.png")%>"  alt="plant">
+        <a href="/benefits/new" class="btn button-purple" id="about">Let's get started</a>
+      </div>
+    <% else%>
+      <div class="project-cards">
+        <%@projects.each do |project|%>
+          <ul class="projects-ul">
+            <li class="projects-li">
+              <img class="plant-item"src="<%= asset_url("plant.png")%>" alt="plant">
+              <%= link_to project.name, project_path(project), class:"btn-project" %>
+            </li>
+          </ul>
+        <%end%>
+    <% end %>
     </div>
   </div>
 </div>
