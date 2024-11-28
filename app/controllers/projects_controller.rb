@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.new(params[:s_id])
+    @project = Project.find_by_session_token(session[:session_token])
     @project.create!
   end
 
