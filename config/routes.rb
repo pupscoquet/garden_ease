@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   #projects
   resources :projects, only: [:index, :show, :new, :destroy, :create]
+  get 'results', to: 'projects#show', as: :results
 
   # benefits
   get "benefits/new", to: "benefits#new", as: :benefits

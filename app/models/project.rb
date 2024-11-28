@@ -1,8 +1,6 @@
 class Project < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_one_attached :photo
-
-  validates :name, :description, :difficulty, :duration, presence: true
 
   def set_content
     client = OpenAI::Client.new
@@ -12,8 +10,8 @@ class Project < ApplicationRecord
                   content: "I'm a complete beginner to gardening.
                   I want a new gardening project that suits my space.
 
-                  These are the qualities of my space: #{project.selected_spaces}
-                  And I want to get this out of my project: #{project.selected_benefits}
+                  These are the qualities of my space: #{self.selected_spaces}
+                  And I want to get this out of my project: #{self.selected_benefits}
 
                   I need the following for the project you suggest:
                   A name.
@@ -37,10 +35,6 @@ class Project < ApplicationRecord
   end
 
   def content
-    if super.blank?
-      set_content
-    else
-      super
-    end
+    set_content ? super.blank? : super
   end
 end
