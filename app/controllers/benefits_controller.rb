@@ -1,6 +1,7 @@
 class BenefitsController < ApplicationController
   def new
     @benefits = Benefit.all
+    # redirect_to new_project_benefit_path(@project)
   end
 
 
@@ -9,9 +10,9 @@ class BenefitsController < ApplicationController
     benefit_ids = @selected_benefits.map(&:id)
     @project = Project.new
     @project.selected_benefits = benefit_ids
-
-    session[:project_id] = @project.id
-    redirect_to spaces_path
+    @project.save
+    
+    redirect_to project_new_space_path(@project)
   end
 
   private

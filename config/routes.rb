@@ -13,15 +13,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  #projects
-  resources :projects, only: [:index, :show, :new, :destroy, :create]
-  get 'results', to: 'projects#show', as: :results
-
-  # benefits
   get "benefits/new", to: "benefits#new", as: :benefits
   post "benefits", to: "benefits#create", as: :selected_benefits
 
-  # spaces
-  get "spaces/new", to: "spaces#new", as: :spaces
-  post "spaces", to: "spaces#create", as: :selected_spaces
+  # projects
+  resources :projects, only: [:index, :destroy]
+
+  resources :projects do
+    get "spaces/new", to: "spaces#new", as: :new_space
+    post "spaces", to: "spaces#create"
+    get "projects/show", to: "projects#show", as: :results
+  end
 end

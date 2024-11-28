@@ -4,7 +4,7 @@
 </section>
 
 <section class="selected-form">
-  <%= form_with url: "/spaces" do |form| %>
+  <%= form_with url: "/projects/#{@project.id}/spaces" do |form| %>
     <fieldset>
       <% @spaces.order(:type_of_space).each do |space| %>
         <% unique_id = "space_#{space.id}" %>
