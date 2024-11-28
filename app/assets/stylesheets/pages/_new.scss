@@ -10,7 +10,24 @@
   text-align: center;
   width: 85%;
   margin: 0 auto;
+  position: relative;
 }
+
+.sidebar {
+  position:absolute;
+  left: 3%;
+  top:50%;
+  color: #361d2e79;
+  font-size: 25px;
+  line-height: 95%;
+  box-shadow: 1px 1px 1px #361d2e14;
+  padding: 4px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+  transition: 1s;
+}
+
 
 .checkbox {
   position: absolute;
@@ -55,4 +72,8 @@
     color: $purple;
     transition: .3s ease;
   }
+}
+
+.sidebar {
+  grid-column: 1;
 }

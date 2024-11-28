@@ -8,6 +8,13 @@
   }
 }
 
+.no-project {
+  margin-top: 30px;
+  a {
+    margin-top: 50px;
+  }
+}
+
 .project-cards {
   display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
