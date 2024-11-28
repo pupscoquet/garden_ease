@@ -1,15 +1,17 @@
 class SpacesController < ApplicationController
   def new
+    @project = Project.find(params[:project_id])
     @spaces = Space.all
   end
 
   def create
     @selected_spaces = Space.find(params[:selected_spaces])
     space_ids = @selected_spaces.map(&:id)
-    @project = Project.find_by_session_token(session[:session_token])
+    @project = Project.find(params[:project_id])
     @project.selected_spaces = space_ids
-
-    redirect_to url_for(controller: 'projects', action: 'show')
+    @project.save
+    
+    redirect_to project_results_path(@project)
   end
 
   private
