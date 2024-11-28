@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   # spaces
   get "spaces/new", to: "spaces#new", as: :spaces
   post "spaces", to: "spaces#create", as: :selected_spaces
+
+  #results
+  post "results", to: "results"
 end
