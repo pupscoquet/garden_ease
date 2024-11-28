@@ -32,8 +32,8 @@ class Project < ApplicationRecord
                   I need this to be generated in the following way:
                   <div>
                     <h3 class='selected-title'>Your generated response for Name</h3>
+                    <h4>Your generated response for Standfirst</h4>
                   </div>
-                  Standfirst Your generated response.
                   Difficulty Your generated response / 5
                   Duration: Your generated response.
                   Description Your generated response.
