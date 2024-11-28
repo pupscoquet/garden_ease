@@ -5,7 +5,9 @@ class SpacesController < ApplicationController
 
   def create
     @selected_spaces = Space.find(params[:selected_spaces])
-    redirect_to '#'
+    space_ids = @selected_spaces.map(&:id)
+    benefit_ids = params[:b_id]
+    redirect_to url_for(controller: 'projects', action: 'show', b_id: benefit_ids, s_id: space_ids)
   end
 
   private

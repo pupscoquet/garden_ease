@@ -3,12 +3,18 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def new
-    @project = Project.new(selected_benefits[:selected_benefits],
-                            selected_spaces[:selected_spaces])
+  def show
+    @project = Project.new(params[:s_id])
+    @project.create!
   end
 
   def show
     # @project = Project.find(params[:id])
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit()
   end
 end
