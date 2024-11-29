@@ -29,24 +29,30 @@ class Project < ApplicationRecord
                   to do things like sow seeds in pots. Leave out any special
                   characters like # and *.
 
-                  I need this to be generated in the following way:
-                  <div>
-                    <h3 class='selected-title'>Your generated response for Name</h3>
-                  </div>
-                  Standfirst Your generated response.
-                  Difficulty Your generated response / 5
-                  Duration: Your generated response.
-                  Description Your generated response.
-                  Items Your generated response.
-                  Method Your generated response.
-                  Fun fact Your generated response.
+                  I need this to be generated as follows:
+                  / your generated response for name
+                  / your generated response for standfirst
+                  / your generated response for difficulty
+                  / your generated response for duration
+                  / your generated response for description
+                  / your generated response for items
+                  / your generated response for method
+                  / your generated response for fun fact
                   "}]
     })
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
+    split_content = new_content.split('/')
+
+    self.name = split_content[1]
+    self.description = split_content[2]
+    self.difficulty = split_content[3]
+    self.duration = split_content[4]
+
     update(content: new_content)
-    return new_content
+    return split_content
   end
+
 
   def content
     if super.blank?
@@ -55,6 +61,4 @@ class Project < ApplicationRecord
       super
     end
   end
-
-  
 end

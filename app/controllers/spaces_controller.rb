@@ -13,7 +13,7 @@ class SpacesController < ApplicationController
     @project.selected_spaces = space_ids
     @project.save
 
-    redirect_to project_results_path(@project)
+    redirect_to project_new_location_path(@project)
   end
 
   private

@@ -1,0 +1,16 @@
+<section class="selected-title">
+  <h3>Tell us where you're growing!</h3>
+  <p>In order to tailor to your climate conditions</p>
+</section>
+
+<section class="selected-form">
+  <%= form_with url: project_location_path(@project), method: :post, class: "location-form" do %>
+     <%= hidden_field_tag :project_id, @project_id %>
+     <%= text_field_tag :location, nil, placeholder: "Your location...", id: "city" %>
+     <%= submit_tag "Submit", class: "btn button-purple"%>
+  <% end %>
+    <%# <input type="text" id="city" name="city" placeholder="your location..."> %>
+    <%# <input type="submit" value="Submit"> %>
+      <%# <a href="" class="btn button-purple" id="submit">Submit</a>
+  </form> %>
+</section>

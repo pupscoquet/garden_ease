@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "about", to: "pages#about", as: :about
-  get "location", to: "pages#location", as: :location
   # get "sign_out", to: "/users/sign_out"
   # Defines the root path route ("/")
   # root "posts#index"
@@ -22,6 +21,9 @@ Rails.application.routes.draw do
   resources :projects do
     get "spaces/new", to: "spaces#new", as: :new_space
     post "spaces", to: "spaces#create"
+    get "location/new", to: "location#new", as: :new_location
+    post "location", to: "location#create"
+    # get "location", to: "projects#location", as: :location
     get "projects/show", to: "projects#show", as: :results
     get "my_saved_projects", to: "projects#my_saved_projects", as: :my_saved_projects
   end
