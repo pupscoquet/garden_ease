@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   has_one_attached :photo
 
   def set_content
-       selected_benefits = []
+    selected_benefits = []
     b_id = self.selected_benefits
     b_id.each do |benefit|
       selected_benefit = Benefit.find(benefit)
@@ -15,10 +15,11 @@ class Project < ApplicationRecord
     s_id = self.selected_spaces
     s_id.each do |space|
       selected_space = Space.find(space)
+
       space_string = selected_space.type_of_space
       selected_spaces << space_string
     end
-    
+
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -68,6 +69,7 @@ class Project < ApplicationRecord
     self.items = split_content[6]
     self.method = split_content[7]
     self.fact = split_content[8]
+    self.save
 
     # update(description: new_content)
     selected_array = []
@@ -76,10 +78,10 @@ class Project < ApplicationRecord
     return selected_array
   end
 
-  def content
+  def description
     if super.blank?
       set_content
-    else
+   else
       super
     end
   end
