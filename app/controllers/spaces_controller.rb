@@ -1,4 +1,6 @@
 class SpacesController < ApplicationController
+  skip_before_action :authenticate_user!
+  
   def new
     @project = Project.find(params[:project_id])
     @spaces = Space.all
