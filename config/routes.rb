@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   resources :projects do
     get "spaces/new", to: "spaces#new", as: :new_space
     post "spaces", to: "spaces#create"
-    get "location", to: "projects#location", as: :location
+    get "location/new", to: "location#new", as: :new_location
+    post "location", to: "location#create"
     # get "location", to: "projects#location", as: :location
     get "projects/show", to: "projects#show", as: :results
   end
