@@ -1,4 +1,6 @@
 class SpacesController < ApplicationController
+  skip_before_action :authenticate_user!
+  
   def new
     @project = Project.find(params[:project_id])
     @spaces = Space.all
@@ -10,8 +12,8 @@ class SpacesController < ApplicationController
     @project = Project.find(params[:project_id])
     @project.selected_spaces = space_ids
     @project.save
-    
-    redirect_to project_results_path(@project)
+
+    redirect_to project_new_location_path(@project)
   end
 
   private

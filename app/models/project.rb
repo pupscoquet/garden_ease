@@ -2,12 +2,8 @@ class Project < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
 
-  def user_input_into_strings
-
-  end
-
-  def content
-    selected_benefits = []
+  def set_content
+       selected_benefits = []
     b_id = self.selected_benefits
     b_id.each do |benefit|
       selected_benefit = Benefit.find(benefit)
@@ -22,7 +18,7 @@ class Project < ApplicationRecord
       space_string = selected_space.type_of_space
       selected_spaces << space_string
     end
-
+    
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -80,9 +76,11 @@ class Project < ApplicationRecord
     return selected_array
   end
 
-
-
-  # def content
-  #   set_content ? super.blank? : super
-  # end
+  def content
+    if super.blank?
+      set_content
+    else
+      super
+    end
+  end
 end
