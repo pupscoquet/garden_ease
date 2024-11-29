@@ -29,17 +29,18 @@ class Project < ApplicationRecord
                   to do things like sow seeds in pots. Leave out any special
                   characters like # and *.
 
-                  I need this to be generated in the following way:
-                  <div>
-                    <h3 class='selected-title'>Your generated response for Name</h3>
-                  </div>
-                  Standfirst Your generated response.
-                  Difficulty Your generated response / 5
-                  Duration: Your generated response.
-                  Description Your generated response.
-                  Items Your generated response.
-                  Method Your generated response.
-                  Fun fact Your generated response.
+                  I need this to be generated in a json format as follows:
+                  {'project.id':[
+                  { 'name':'your generated response',
+                    'standfirst':'your generated response',
+                    'difficulty':'your generated response as a bigint',
+                    'duration':'your generated response',
+                    'description':'your generated response',
+                    'items':'your generated response',
+                    'method':'your generated response',
+                    'fact':'your generated response',
+                   }
+                  ]}
                   "}]
     })
     new_content = chatgpt_response["choices"][0]["message"]["content"]
@@ -47,6 +48,8 @@ class Project < ApplicationRecord
     update(content: new_content)
     return new_content
   end
+
+
 
   # def content
   #   set_content ? super.blank? : super
