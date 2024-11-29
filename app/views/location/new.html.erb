@@ -4,7 +4,7 @@
 </section>
 
 <section class="selected-form">
-  <%= form_with url: project_location_path, method: :post, class: "location-form" do %>
+  <%= form_with url: project_location_path(@project), method: :post, class: "location-form" do %>
      <%= hidden_field_tag :project_id, @project_id %>
      <%= text_field_tag :location, nil, placeholder: "Your location...", id: "city" %>
      <%= submit_tag "Submit", class: "btn button-purple"%>
