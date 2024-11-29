@@ -1,0 +1,32 @@
+.project-title {
+  height: 90vh;
+  width: 90vw;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+
+
+  .project-left {
+    text-align: left;
+    padding-right: 40px;
+  }
+
+  img {
+    margin: 0 20px;
+    width: 400px;
+    border-radius: 12px;
+  }
+}
+
+.project-content {
+  padding: 120px 0 120px 0;
+  height: 90vh;
+  width: 90vw;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
