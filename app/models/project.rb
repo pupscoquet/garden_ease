@@ -18,7 +18,7 @@ class Project < ApplicationRecord
       space_string = selected_space.type_of_space
       selected_spaces << space_string
     end
-    
+
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -69,14 +69,13 @@ class Project < ApplicationRecord
     self.method = split_content[7]
     self.fact = split_content[8]
 
-    # update(description: new_content)
     selected_array = []
     selected_array << selected_benefits
     selected_array << selected_spaces
     return selected_array
   end
 
-  def content
+  def description
     if super.blank?
       set_content
     else

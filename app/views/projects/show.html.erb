@@ -1,4 +1,4 @@
-<% simple_format @project.content %>
+<% simple_format @project.description %>
 
 <section class="project-title">
   <div class="project-left">
@@ -20,7 +20,7 @@
   <p><%= @project.method %></p>
   <h4>Fun fact</h4>
   <p><%= @project.fact %></p>
-  
+
   <div id="saved-btn"  >
     <% unless current_user.projects.include?(@project) %>
      <%= link_to "Save in my projects", project_my_saved_projects_path %>
