@@ -1,4 +1,6 @@
 class BenefitsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :new, :create]
+
   def new
     @benefits = Benefit.all
     # redirect_to new_project_benefit_path(@project)
@@ -11,7 +13,7 @@ class BenefitsController < ApplicationController
     @project = Project.new
     @project.selected_benefits = benefit_ids
     @project.save
-    
+
     redirect_to project_new_space_path(@project)
   end
 

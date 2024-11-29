@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
 
-  def content
+  def set_content
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -48,7 +48,13 @@ class Project < ApplicationRecord
     return new_content
   end
 
-  # def content
-  #   set_content ? super.blank? : super
-  # end
+  def content
+    if super.blank?
+      set_content
+    else
+      super
+    end
+  end
+
+  
 end

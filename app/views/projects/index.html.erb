@@ -2,7 +2,7 @@
   <div class="my-projects">
     <h1 class="projects">My projects</h1>
 
-    <% if @project.nil? %>
+    <% if @projects.empty? %>
       <div class="no-project">
         <p>You don't have any project yet.</p>
         <p>Create your first project!</p>
@@ -15,7 +15,7 @@
           <ul class="projects-ul">
             <li class="projects-li">
               <img class="plant-item"src="<%= asset_url("plant.png")%>" alt="plant">
-              <%= link_to project.name, project_path(project), class:"btn-project" %>
+              <%= link_to project.name, project_results_path(project), class:"btn-project" %>
             </li>
           </ul>
         <%end%>

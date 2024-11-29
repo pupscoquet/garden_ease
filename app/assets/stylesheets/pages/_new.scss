@@ -14,9 +14,10 @@
 }
 
 .sidebar {
+  grid-column: 1;
   position:absolute;
   left: 3%;
-  top:50%;
+  top:45%;
   color: #361d2e79;
   font-size: 25px;
   line-height: 95%;
@@ -74,6 +75,24 @@
   }
 }
 
-.sidebar {
-  grid-column: 1;
+
+.page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 1s ease-in-out;
+  z-index: 1;
+}
+
+.page.page-1.slide-up {
+  transform: translateY(-100%);
+}
+
+
+.page.page-2.slide-in {
+  transform: translateY(0);
+  z-index: 2; 
 }

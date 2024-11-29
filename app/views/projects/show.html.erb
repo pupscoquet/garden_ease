@@ -1,1 +1,8 @@
 <div><%= simple_format @project.content %></div>
+
+
+ <div id="saved-btn"  >
+  <% unless current_user.projects.include?(@project) %>
+   <%= link_to "Save in my projects", project_my_saved_projects_path%>
+  <% end %>
+</div>
