@@ -10,8 +10,8 @@ class SpacesController < ApplicationController
     @project = Project.find(params[:project_id])
     @project.selected_spaces = space_ids
     @project.save
-    
-    redirect_to project_results_path(@project)
+
+    redirect_to project_location_path(@project)
   end
 
   private
