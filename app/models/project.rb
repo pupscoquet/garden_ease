@@ -2,7 +2,27 @@ class Project < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
 
+  def user_input_into_strings
+
+  end
+
   def content
+    selected_benefits = []
+    b_id = self.selected_benefits
+    b_id.each do |benefit|
+      selected_benefit = Benefit.find(benefit)
+      benefit_string = selected_benefit.type_of_benefit
+      selected_benefits << benefit_string
+    end
+
+    selected_spaces = []
+    s_id = self.selected_spaces
+    s_id.each do |space|
+      selected_space = Space.find(space)
+      space_string = selected_space.type_of_space
+      selected_spaces << space_string
+    end
+
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -10,14 +30,14 @@ class Project < ApplicationRecord
                   content: "I'm a complete beginner to gardening.
                   I want a new gardening project that suits my space.
 
-                  These are the qualities of my space: #{self.selected_spaces}
-                  And I want to get this out of my project: #{self.selected_benefits}
+                  These are the qualities of my space: #{selected_spaces}
+                  And I want to get this out of my project: #{selected_benefits}
 
                   I need the following for the project you suggest:
                   Name.
                   Standfirst.
                   Difficulty - between 1-5.
-                  Duration of whole project. In either hours, days or weeks.
+                  Duration - in either hours, days or weeks.
                   Description - ~80 words.
                   A broken down bulleted list of 1-7 items I would need.
                   A numbered list of the method - max 800 words, no headings.
@@ -45,12 +65,19 @@ class Project < ApplicationRecord
     split_content = new_content.split('/')
 
     self.name = split_content[1]
-    self.description = split_content[2]
+    self.description = split_content[5]
     self.difficulty = split_content[3]
     self.duration = split_content[4]
+    self.standfirst = split_content[2]
+    self.items = split_content[6]
+    self.method = split_content[7]
+    self.fact = split_content[8]
 
-    update(content: new_content)
-    return split_content
+    # update(description: new_content)
+    selected_array = []
+    selected_array << selected_benefits
+    selected_array << selected_spaces
+    return selected_array
   end
 
 
