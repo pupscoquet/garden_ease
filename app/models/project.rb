@@ -29,24 +29,28 @@ class Project < ApplicationRecord
                   to do things like sow seeds in pots. Leave out any special
                   characters like # and *.
 
-                  I need this to be generated in a json format as follows:
-                  {'project.id':[
-                  { 'name':'your generated response',
-                    'standfirst':'your generated response',
-                    'difficulty':'your generated response as a bigint',
-                    'duration':'your generated response',
-                    'description':'your generated response',
-                    'items':'your generated response',
-                    'method':'your generated response',
-                    'fact':'your generated response',
-                   }
-                  ]}
+                  I need this to be generated as follows:
+                  / your generated response for name
+                  / your generated response for standfirst
+                  / your generated response for difficulty
+                  / your generated response for duration
+                  / your generated response for description
+                  / your generated response for items
+                  / your generated response for method
+                  / your generated response for fun fact
                   "}]
     })
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
+    split_content = new_content.split('/')
+
+    self.name = split_content[1]
+    self.description = split_content[2]
+    self.difficulty = split_content[3]
+    self.duration = split_content[4]
+
     update(content: new_content)
-    return new_content
+    return split_content
   end
 
 
