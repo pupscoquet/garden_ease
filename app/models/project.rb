@@ -32,11 +32,13 @@ class Project < ApplicationRecord
                   I need the following for the project you suggest:
                   Name.
                   Standfirst.
-                  Difficulty - between 1-5.
+                  Difficulty - between 1-5. Has to be above 0.
                   Duration - in either hours, days or weeks.
                   Description - ~80 words.
-                  A broken down bulleted list of 1-7 items I would need.
-                  A numbered list of the method - max 800 words, no headings.
+                  A broken down bulleted list of 1-7 items I would need, put a
+                  '-' between each item.
+                  A numbered list of the method - max 800 words, no headings,
+                  put a '-' between each step.
                   A fun fact about it - max 20 words.
 
                   When generating the above, generate response in British
@@ -49,7 +51,7 @@ class Project < ApplicationRecord
                   / your generated response for name
                   / your generated response for standfirst
                   / your generated response for difficulty
-                  / your generated response for duration
+                  / your generated response for duration like '1 week' or '2 months'
                   / your generated response for description
                   / your generated response for items
                   / your generated response for method
@@ -59,6 +61,8 @@ class Project < ApplicationRecord
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
     split_content = new_content.split('/')
+    # items =
+    # method =
 
     self.name = split_content[1]
     self.description = split_content[5]
@@ -68,6 +72,7 @@ class Project < ApplicationRecord
     self.items = split_content[6]
     self.method = split_content[7]
     self.fact = split_content[8]
+    self.save
 
     selected_array = []
     selected_array << selected_benefits
