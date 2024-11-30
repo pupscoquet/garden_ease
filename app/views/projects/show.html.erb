@@ -1,5 +1,6 @@
 <% simple_format @project.description %>
 
+
 <section class="project-title">
   <div class="project-left">
     <h3><%= @project.name %></h3>
@@ -15,13 +16,21 @@
   <h4>Description</h4>
   <p><%= @project.description %></p>
   <h4>Items needed</h4>
-  <p><%= @project.items %></p>
+  <ul>
+    <% @project.items.each do |item| %>
+      <li><%= item.capitalize %></li>
+    <% end %>
+  </ul>
   <h4>Method</h4>
-  <p><%= @project.method %></p>
+  <ol>
+    <% @project.method.each do |step| %>
+      <li><%= step %></li>
+    <% end %>
+  </ol>
   <h4>Fun fact</h4>
   <p><%= @project.fact %></p>
 
-  <div id="saved-btn"  >
+  <div id="saved-btn">
     <% unless current_user.projects.include?(@project) %>
      <%= link_to "Save in my projects", project_my_saved_projects_path %>
     <% end %>

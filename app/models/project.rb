@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
+  attribute :items, :json, default: []
+  attribute :method, :json, default: []
 
   def set_content
        selected_benefits = []
@@ -61,23 +63,26 @@ class Project < ApplicationRecord
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
     split_content = new_content.split('/')
-    items =
+
+    items = split_content[6]
+    split_items = items.split('|').map(&:strip)
     method = split_content[7]
+    split_method = method.split('|').map(&:strip)
 
     self.name = split_content[1]
     self.description = split_content[5]
     self.difficulty = split_content[3]
     self.duration = split_content[4]
     self.standfirst = split_content[2]
-    self.items = split_content[6]
-    self.method =
+    self.items = split_items
+    self.method = split_method
     self.fact = split_content[8]
     self.save
 
     selected_array = []
     selected_array << selected_benefits
     selected_array << selected_spaces
-    return selected_array
+    return items
   end
 
   def description
