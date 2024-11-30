@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   attribute :method, :json, default: []
 
   def set_content
-       selected_benefits = []
+    selected_benefits = []
     b_id = self.selected_benefits
     b_id.each do |benefit|
       selected_benefit = Benefit.find(benefit)
@@ -17,6 +17,7 @@ class Project < ApplicationRecord
     s_id = self.selected_spaces
     s_id.each do |space|
       selected_space = Space.find(space)
+
       space_string = selected_space.type_of_space
       selected_spaces << space_string
     end
@@ -88,7 +89,7 @@ class Project < ApplicationRecord
   def description
     if super.blank?
       set_content
-    else
+   else
       super
     end
   end
