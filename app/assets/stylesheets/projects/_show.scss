@@ -24,12 +24,10 @@
     }
 
     .fun-fact {
-      // margin-top: 40px;
       display: flex;
       align-items: center;
       flex-direction: column;
       justify-content: center;
-      // position: absolute;
       bottom: 10px;
       left: -5px;
       background-color: $purple;
@@ -72,10 +70,22 @@
     }
   }
 
-  img {
-    margin: 0 20px;
+  .image-container {
     width: 400px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 20px;
+    border: 12px solid #fff;
     border-radius: 12px;
+
+    img {
+      width: 100%;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }
 
@@ -106,7 +116,6 @@
 
   .items {
     width: 240px;
-    // transform: rotate(-3deg);
 
     h4 {
       margin-left: 12px;
