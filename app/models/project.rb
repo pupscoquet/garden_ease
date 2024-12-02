@@ -29,6 +29,7 @@ class Project < ApplicationRecord
 
                   These are the qualities of my space: #{selected_spaces}
                   And I want to get this out of my project: #{selected_benefits}
+                  At the location: #{location}
 
                   I need the following for the project you suggest:
                   Name.
@@ -81,11 +82,11 @@ class Project < ApplicationRecord
     return selected_array
   end
 
-  def description
-    if super.blank?
-      set_content
-   else
-      super
-    end
-  end
+  # def description
+  #   if super.blank?
+  #     set_content
+  #  else
+  #     super
+  #   end
+  # end
 end
