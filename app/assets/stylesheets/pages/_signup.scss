@@ -10,13 +10,30 @@ h2 {
 
 .signup-form {
   background-color: $yellow;
-  height: 100vh;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(67, 155, 75, 0.15);
-  width: 500px;
-  max-width: 90%;
+  width: 80%;
   margin: auto;
+
+  input[type=email] {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 8px 0;
+  }
+
+  input[type=password] {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 8px 0;
+  }
 }
 
 input {
@@ -32,8 +49,7 @@ input {
 
 .input:focus {
   border-color: $green;
-  outline: none;
-  box-shadow: 0 0 6px rgba(85, 255, 0, 0.3);
+  outline: $green;
 }
 
 .form-inputs {
@@ -42,17 +58,28 @@ input {
   font-size: 16px;
   padding: 10px 30px;
   border-radius: 20px;
+
+  input {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 8px 0;
+  }
 }
 
 .form-actions button {
   width: 100%;
   padding: 15px;
-
 }
 
 .login-link {
   text-align: center;
   width: 100%;
+  margin-top: 20px;
+  color: #000;
 }
 
   input[type="submit"].btn {
@@ -70,7 +97,7 @@ input {
 
     &:hover {
       background-color: $purple;
-      color: $purple;
+      color: #fff;
     }
 
     &:before {
@@ -90,20 +117,3 @@ input {
       width: 100%;
     }
   }
-
-  //   font-family: $headers-font;
-  //   color:#fff;
-  //   font-size: 14px;
-  //   padding-inline: 0;
-  //   border-radius: 0px;
-  //   background-color: #932770 !important;
-  //   width: 150px;
-  //   display: block;
-  //   margin: 0 auto;
-  //   text-align: center;
-  // }
-
-  // input[type="submit"].btn:hover {
-  //   background-color: #661b4f;
-  //   border-radius: 0px;
-  // }

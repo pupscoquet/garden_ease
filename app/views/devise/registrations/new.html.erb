@@ -20,7 +20,7 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" },
                 class: "input",
-                placeholder: "Garden@ease.com" %>
+                placeholder: "garden@ease.com" %>
     <%= f.input :password,
                 required: false,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -29,6 +29,8 @@
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
   </div>
+
+
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up"  %>

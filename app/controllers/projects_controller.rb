@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @project.set_content
+    @items = @project.items
   end
 
   def my_saved_projects
