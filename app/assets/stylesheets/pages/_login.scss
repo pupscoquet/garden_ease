@@ -11,9 +11,36 @@
   background-color: $yellow;
   height: auto;
   padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(67, 155, 75, 0.15);
   width: 500px;
-  max-width: 90%;
+  width: 80%;
   margin: auto;
+
+  input[type=email] {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 8px 0;
+  }
+
+  input[type=password] {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 8px 0;
+  }
+}
+
+.form-actions {
+  text-align: center;
+
+  .btn {
+    width: 60%;
+    margin: 0 auto !important;
+  }
 }
