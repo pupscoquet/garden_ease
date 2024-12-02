@@ -7,9 +7,12 @@ application.debug = false
 window.Stimulus   = application
 
 const savedBtn = document.querySelector("#saved-btn")
-savedBtn.addEventListener("click", () => {
-  savedBtn.style.display = "none";
-})
+if (savedBtn) {
+  savedBtn.addEventListener("click", () => {
+    savedBtn.style.display = "none";
+  })
+}
+
 
 
 export { application }
