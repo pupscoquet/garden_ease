@@ -4,21 +4,26 @@
 
     <% if @projects.empty? %>
       <div class="no-project">
-        <p>You don't have any project yet.</p>
+        <p>You don't have any projects yet.</p>
         <p>Create your first project!</p>
         <img class="plant" src="<%= asset_url("plant2.png")%>"  alt="plant">
         <a href="/benefits/new" class="btn button-purple" id="about">Let's get started</a>
       </div>
     <% else%>
       <div class="project-cards">
-        <%@projects.each do |project|%>
-          <ul class="projects-ul">
-            <li class="projects-li">
-              <img class="plant-item"src="<%= asset_url("plant.png")%>" alt="plant">
-              <%= link_to project.name, project_results_path(project), class:"btn-project" %>
-            </li>
-          </ul>
-        <%end%>
+        <ul class="projects-ul">
+          <% @projects.each do |project| %>
+            <%= link_to project_results_path(project) do %>
+              <li class="projects-li">
+                <div class="image-container">
+                  <img class="plant-item"src="<%= asset_url(project.picture)%>" alt="plant">
+                </div>
+                <h5><%= project.name %></h5>
+                <p>&#128465;</p>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
     <% end %>
     </div>
   </div>

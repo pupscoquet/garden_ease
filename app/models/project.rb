@@ -5,7 +5,10 @@ class Project < ApplicationRecord
   attribute :method, :json, default: []
 
   def set_content
+    selected_array = []
     selected_benefits = []
+    selected_spaces = []
+
     b_id = self.selected_benefits
     b_id.each do |benefit|
       selected_benefit = Benefit.find(benefit)
@@ -13,7 +16,6 @@ class Project < ApplicationRecord
       selected_benefits << benefit_string
     end
 
-    selected_spaces = []
     s_id = self.selected_spaces
     s_id.each do |space|
       selected_space = Space.find(space)
@@ -21,6 +23,9 @@ class Project < ApplicationRecord
       space_string = selected_space.type_of_space
       selected_spaces << space_string
     end
+
+    selected_array << selected_benefits
+    selected_array << selected_spaces
 
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
@@ -31,7 +36,7 @@ class Project < ApplicationRecord
 
                   These are the qualities of my space: #{selected_spaces}
                   And I want to get this out of my project: #{selected_benefits}
-                  At the location: #{location}
+                  Take into account the climate here: #{location}
 
                   I need the following for the project you suggest:
                   Name.
@@ -81,17 +86,15 @@ class Project < ApplicationRecord
     self.fact = split_content[8]
     self.save
 
-    selected_array = []
-    selected_array << selected_benefits
-    selected_array << selected_spaces
+
     return items
   end
 
-  # def description
-  #   if super.blank?
-  #     set_content
-  #  else
-  #     super
-  #   end
-  # end
+  def description
+    if super.blank?
+      set_content
+   else
+      super
+    end
+  end
 end
