@@ -38,9 +38,9 @@ class Project < ApplicationRecord
                   Difficulty - between 1-5. Has to be above 0.
                   Duration - in either hours, days or weeks.
                   Description - ~80 words.
-                  A broken down bulleted list of 1-7 items I would need, put a
+                  A broken down bulleted list of 1-10 items I would need, put a
                   '|' between each item.
-                  A non-numbered list of the method - max 800 words, no headings,
+                  An unordered list of the method - max 1000 words, no headings,
                   put a '|' between each step.
                   A fun fact about it - max 20 words.
 
