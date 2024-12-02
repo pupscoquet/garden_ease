@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post "benefits", to: "benefits#create", as: :selected_benefits
 
   # projects
-  resources :projects, only: [:index, :show, :destroy, :my_saved_project]
+  resources :projects, only: [:my_saved_project]
 
   resources :projects do
     get "spaces/new", to: "spaces#new", as: :new_space

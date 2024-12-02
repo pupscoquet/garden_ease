@@ -97,4 +97,52 @@ class Project < ApplicationRecord
       super
     end
   end
+
+  def picture
+    benefit = Benefit.find(selected_benefits.last)
+
+    case benefit.id
+    when 1
+      "1.freshfood.jpg"
+    when 2
+      "2.sustainability.jpg"
+    when 3
+      "3.air quality.jpg"
+    when 4
+      "4.balcony.jpg"
+    when 5
+      "18.shared projects.jpg"
+    when 6
+      "5.decoration.jpg"
+    when 7
+      "15.bonding activities.jpg"
+    when 8
+      "20.jpg"
+    when 9
+      "7.zen.jpg"
+    when 10
+      "8.seasonal.jpg"
+    when 11
+      "11.structural greenery.jpg"
+    when 12
+      "9.healthy eating.jpg"
+    when 13
+      "12.physical exercise.jpg"
+    when 14
+      "14.fresh air.jpg"
+    when 15
+      "13.stress relief.jpg"
+    when 16
+      "19.group activity.jpg"
+    when 17
+      "17.time outdoors.jpg"
+    when 18
+      "16.educational.jpg"
+    when 19
+      "10.shared project.jpg"
+    when 20
+      "6.full sun.jpg"
+    end
+  end
+
 end
