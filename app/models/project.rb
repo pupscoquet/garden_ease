@@ -38,7 +38,7 @@ class Project < ApplicationRecord
                   Standfirst.
                   Difficulty - between 1-5. Has to be above 0.
                   Duration - in either hours, days or weeks.
-                  Description - ~80 words.
+                  Description - ~80 words. Mention the location (#{location}) here.
                   A broken down bulleted list of 1-10 items I would need, put a
                   '|' between each item.
                   An unordered list of the method - max 1000 words, no headings,
