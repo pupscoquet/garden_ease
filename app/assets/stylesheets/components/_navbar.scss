@@ -2,6 +2,11 @@
   justify-content: space-between;
   background-color: $green;
   height: 70px;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  font-family: $headers-font;
+  width: 100vw;
 
   h4 {
     padding-top: 4px;
@@ -10,7 +15,7 @@
   .header-bold {
     color: $yellow;
     font-size: 32px;
-    flex-grow: 1
+    flex-grow: 1;
   }
 
   a {
@@ -34,16 +39,24 @@
     margin-left: 16px;
     align-self: center;
     margin-top: 30px;
+    font-family: $headers-font;
   }
 
   .dropbtn {
+    font-family: $headers-font;
     background-color: $green;
-    color: $yellow;
+    color: #fff;
     padding: 0px;
     padding-bottom: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+    margin: 0 12px 0 16px;
+
+    &:hover {
+      color: $yellow;
+      transition: .2s ease-in-out;
+    }
   }
 
 
@@ -75,8 +88,8 @@
     padding: 5px 15px;
     background-color: white;
     border-radius: 20px;
-    color: $purple;
-    font-weight: bold;
+    color: $dark-purple;
+    font-weight: 300;
     margin-bottom: 3px;
   }
 
