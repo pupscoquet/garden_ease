@@ -38,6 +38,7 @@
       border-radius: 50%;
       transform: rotate(-7deg);
       box-shadow: 7px 3px 0px 8px $light-green;
+      z-index: 2;
 
       .text {
         width: 170px;
@@ -77,6 +78,7 @@
     margin: 0 20px;
     border: 12px solid #fff;
     border-radius: 12px;
+    z-index: 1;
 
     img {
       width: 100%;
