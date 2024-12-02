@@ -1,29 +1,61 @@
 <% simple_format @project.description %>
 
+
 <section class="project-title">
   <div class="project-left">
-    <h3><%= @project.name %></h3>
-    <h4><%= @project.standfirst %></h4>
-    <p><strong>Difficulty: </strong><%= @project.difficulty %>/5 <strong>Duration: </strong><%= @project.duration %></p>
+    <div class="top-titles">
+      <h3><%= @project.name %></h3>
+      <h4><%= @project.standfirst %></h4>
+
+      <div class="flex">
+        <p><strong>Difficulty </strong><%= @project.difficulty %>/5</p>
+        <div class="separator"></div>
+        <p><strong>Duration </strong><%= @project.duration %></p>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      <div class="text">
+        <h5>Fun fact</h5>
+        <p><%= @project.fact %></p>
+      </div>
+    </div>
   </div>
   <div class="project-right">
     <img src="<%= asset_url("1.freshfood.jpg")%>" alt="illustration of people gardening">
   </div>
 </section>
 
-<section class="project-content">
-  <h4>Description</h4>
-  <p><%= @project.description %></p>
-  <h4>Items needed</h4>
-  <p><%= @project.items %></p>
-  <h4>Method</h4>
-  <p><%= @project.method %></p>
-  <h4>Fun fact</h4>
-  <p><%= @project.fact %></p>
-
-  <div id="saved-btn"  >
-    <% unless current_user.projects.include?(@project) %>
-     <%= link_to "Save in my projects", project_my_saved_projects_path %>
-    <% end %>
+<section class="description">
+  <div class="container">
+    <p><%= @project.description %></p>
   </div>
 </section>
+
+<section class="project-content">
+  <div class="items">
+    <h4>Items needed</h4>
+    <ul>
+      <% @project.items.each do |item| %>
+        <li><%= item.capitalize %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="separator"></div>
+  <div class="method">
+    <h4>Method</h4>
+    <ol>
+      <% @project.method.each do |step| %>
+        <li><%= step %></li>
+      <% end %>
+    </ol>
+  </div>
+</section>
+
+<div id="saved-btn">
+  <% unless current_user.projects.include?(@project) %>
+    <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
+  <% end %>
+</div>
+
+<div class="separator"></div>
