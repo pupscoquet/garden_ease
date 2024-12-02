@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:my_saved_project]
 
   resources :projects do
+    resources :progresses, only: [:create, :new]
     get "spaces/new", to: "spaces#new", as: :new_space
     post "spaces", to: "spaces#create"
     get "location/new", to: "location#new", as: :new_location
