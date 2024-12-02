@@ -28,11 +28,6 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-    }
-
-    a {
-      text-decoration: none;
-      color: #000;
 
       li {
         height: 360px;
@@ -43,6 +38,11 @@
         background-color: #fff;
         border: 2px solid #fff;
         border-radius: 12px;
+
+        a {
+          text-decoration: none;
+          color: #000;
+        }
 
         .image-container {
           height: 240px;
