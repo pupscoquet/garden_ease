@@ -14,7 +14,7 @@
 .loader {
   display: none;
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform:translate(-50%, -50%);
   border: 1.5px solid rgba(128, 128, 128, 0.405);
@@ -26,7 +26,7 @@
   background-color: $yellow;
   text-align: left;
   padding-left: 200px;
-  padding-top: 250px;
+  padding-top: 240px;
 }
 
 .mypopup.show {
