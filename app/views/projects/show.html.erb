@@ -19,7 +19,9 @@
     </div>
   </div>
   <div class="project-right">
-    <img src="<%= asset_url("1.freshfood.jpg")%>" alt="illustration of people gardening">
+    <div class="image-container">
+      <img src="<%= asset_url(@project.picture)%>" alt="illustration of people gardening">
+    </div>
   </div>
 </section>
 
@@ -43,7 +45,7 @@
     <h4>Method</h4>
     <ol>
       <% @project.method.each do |step| %>
-        <li><%= step %></li>
+        <li><%= step.capitalize %></li>
       <% end %>
     </ol>
   </div>
