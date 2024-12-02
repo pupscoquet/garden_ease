@@ -8,34 +8,6 @@ h2 {
   text-align: center;
 }
 
-.signup-form {
-  background-color: $yellow;
-  padding: 40px;
-  border-radius: 8px;
-  width: 80%;
-  margin: auto;
-
-  input[type=email] {
-    background-color: $yellow;
-    border: none;
-    border-bottom: 1px solid #333;
-    border-radius: 0;
-    margin-bottom: 20px;
-    width: 80%;
-    padding: 8px 0;
-  }
-
-  input[type=password] {
-    background-color: $yellow;
-    border: none;
-    border-bottom: 1px solid #333;
-    border-radius: 0;
-    margin-bottom: 20px;
-    width: 80%;
-    padding: 8px 0;
-  }
-}
-
 input {
   width: 100%;
   padding: 8px 12px;
@@ -65,7 +37,7 @@ input {
     border-bottom: 1px solid #333;
     border-radius: 0;
     margin-bottom: 20px;
-    width: 80%;
+    width: 100%;
     padding: 8px 0;
   }
 }

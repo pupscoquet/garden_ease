@@ -5,35 +5,8 @@
   font-size: 16px;
   padding: 5px 15px;
   border-radius: 20px;
-}
-
-.signin-form {
-  background-color: $yellow;
-  height: auto;
-  padding: 40px;
-  width: 500px;
-  width: 80%;
-  margin: auto;
-
-  input[type=email] {
-    background-color: $yellow;
-    border: none;
-    border-bottom: 1px solid #333;
-    border-radius: 0;
-    margin-bottom: 20px;
-    width: 80%;
-    padding: 8px 0;
-  }
-
-  input[type=password] {
-    background-color: $yellow;
-    border: none;
-    border-bottom: 1px solid #333;
-    border-radius: 0;
-    margin-bottom: 20px;
-    width: 80%;
-    padding: 8px 0;
-  }
+  outline: none;
+  text-align: center !important;
 }
 
 .form-actions {
@@ -43,4 +16,5 @@
     width: 60%;
     margin: 0 auto !important;
   }
+
 }
