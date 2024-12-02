@@ -3,6 +3,19 @@
   background-color: $yellow;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 80%;
+
+  input[type=text] {
+    background-color: $yellow;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 8px 0;
+  }
+
+  input[type=submit] {
+    width: 60%;
+  }
 }

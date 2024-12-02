@@ -5,15 +5,16 @@
   font-size: 16px;
   padding: 5px 15px;
   border-radius: 20px;
+  outline: none;
+  text-align: center !important;
 }
 
-.signin-form {
-  background-color: $yellow;
-  height: auto;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(67, 155, 75, 0.15);
-  width: 500px;
-  max-width: 90%;
-  margin: auto;
+.form-actions {
+  text-align: center;
+
+  .btn {
+    width: 60%;
+    margin: 0 auto !important;
+  }
+
 }

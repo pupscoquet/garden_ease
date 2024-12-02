@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
+  attribute :items, :json, default: []
+  attribute :method, :json, default: []
 
   def set_content
     selected_benefits = []
@@ -29,17 +31,18 @@ class Project < ApplicationRecord
 
                   These are the qualities of my space: #{selected_spaces}
                   And I want to get this out of my project: #{selected_benefits}
+                  At the location: #{location}
 
                   I need the following for the project you suggest:
                   Name.
                   Standfirst.
                   Difficulty - between 1-5. Has to be above 0.
                   Duration - in either hours, days or weeks.
-                  Description - ~80 words.
-                  A broken down bulleted list of 1-7 items I would need, put a
-                  '-' between each item.
-                  A numbered list of the method - max 800 words, no headings,
-                  put a '-' between each step.
+                  Description - ~80 words. Mention the location (#{location}) here.
+                  A broken down bulleted list of 1-10 items I would need, put a
+                  '|' between each item.
+                  An unordered list of the method - max 1000 words, no headings,
+                  put a '|' between each step.
                   A fun fact about it - max 20 words.
 
                   When generating the above, generate response in British
@@ -62,30 +65,33 @@ class Project < ApplicationRecord
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
     split_content = new_content.split('/')
-    # items =
-    # method =
+
+    items = split_content[6]
+    split_items = items.split('|').map(&:strip)
+    method = split_content[7]
+    split_method = method.split('|').map(&:strip)
 
     self.name = split_content[1]
     self.description = split_content[5]
     self.difficulty = split_content[3]
     self.duration = split_content[4]
     self.standfirst = split_content[2]
-    self.items = split_content[6]
-    self.method = split_content[7]
+    self.items = split_items
+    self.method = split_method
     self.fact = split_content[8]
     self.save
 
     selected_array = []
     selected_array << selected_benefits
     selected_array << selected_spaces
-    return selected_array
+    return items
   end
 
-  def description
-    if super.blank?
-      set_content
-   else
-      super
-    end
-  end
+  # def description
+  #   if super.blank?
+  #     set_content
+  #  else
+  #     super
+  #   end
+  # end
 end
