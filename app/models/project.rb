@@ -3,6 +3,8 @@ class Project < ApplicationRecord
   has_one_attached :photo
   attribute :items, :json, default: []
   attribute :method, :json, default: []
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def set_content
     selected_array = []

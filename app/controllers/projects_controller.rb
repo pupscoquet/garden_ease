@@ -6,9 +6,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @projects = Project.all
     @project = Project.find(params[:project_id])
     @items = @project.items
-    
+    @markers = @projects.geocoded.map do |flat|
+      {
+        lat: project.latitude,
+        lng: project.longitude,
+      }
+    end
   end
 
   def my_saved_projects
