@@ -7,11 +7,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:project_id])
-    @project.set_content
     @items = @project.items
 
     @selected_benefits = @project.selected_benefits
-    @benefit = Benefit.find(@selected_benefits.sample)
+    @benefit = Benefit.find(@selected_benefits.last)
 
     case @benefit.id
     when 1
@@ -63,6 +62,12 @@ class ProjectsController < ApplicationController
     @project.save
     redirect_to project_results_path(@project)
     flash[:saved] = "Saved in your projects!"
+  end
+
+  def destroy
+    @project = Project.find(params[:project_id])
+    @project.destroy
+    redirect_to projects_path
   end
 
 end

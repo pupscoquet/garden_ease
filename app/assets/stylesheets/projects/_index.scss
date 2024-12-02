@@ -1,61 +1,90 @@
-.my-projects{
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  .projects{
-    font-size: 120px !important;
+.main-container {
+  width: 80vw;
+  margin: 120px auto 0 auto;
+
+  .my-projects{
+    position: absolute;
+
+    .projects{
+      font-size: 120px !important;
+      margin-left: 8px;
+    }
   }
-}
 
-.no-project {
-  margin-top: 30px;
-  a {
-    margin-top: 50px;
+  .no-project {
+    margin-top: 30px;
+
+    a {
+      margin-top: 50px;
+    }
   }
-}
 
-.project-cards {
-  display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    max-width: 1250px;
-    margin: 10px auto;
-    padding: 20px;
-    gap: 20px;
- }
+  .project-cards {
 
-.projects-ul{
-  list-style: none;
-  padding: 0;
-  display: inline-block;
-}
+    ul {
+      margin-top: 40px;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
 
-.projects-li {
-  height: 250px;
-  margin: 10px;
-  text-align: center;
-  border: 2px solid $green;
-  box-shadow: 1.5px 1.5px 1px rgba(1, 81, 29, 0.238);
-  border-radius: 5px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  &:hover {
-    transform: scale(1.05);
-    transition: .3s;
+    a {
+      text-decoration: none;
+      color: #000;
+
+      li {
+        height: 360px;
+        width: 240px;
+        margin: 12px;
+        position: relative;
+        overflow: hidden;
+        background-color: #fff;
+        border: 2px solid #fff;
+        border-radius: 12px;
+
+        .image-container {
+          height: 240px;
+          width: 240px;
+          border-radius: 12px 12px 0 0;
+          overflow: hidden;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 90%;
+          transition: transform 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        h5 {
+          height: 40px;
+          color: #000;
+          padding: 12px;
+
+          &:hover {
+            color: $green;
+            transition: .3s ease-in-out;
+          }
+        }
+
+        p {
+          padding: 12px;
+          margin-top: 24px;
+          color: #666;
+          transition: .3s ease-in-out;
+
+          &:hover {
+            color: #222;
+          }
+        }
+      }
+    }
   }
-}
-
-.btn-project {
-  text-decoration: none;
-  color: black;
-  &:hover {
-    color: $green;
-  }
-}
-
-.plant-item {
-  width: 100px;
-  margin: 10px;
 }
