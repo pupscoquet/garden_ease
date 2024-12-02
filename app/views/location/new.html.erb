@@ -4,6 +4,12 @@
     <p>In order to tailor to your climate conditions</p>
   </section>
 
+  <div class="sidebar">
+    <i class="two"></i>&#9675;<br>
+    <i class="three"></i>&#9675;<br>
+    <i class="one">&#9679;</i><br>
+  </div>
+
   <section class="selected-form" data-controller="popup">
     <%= form_with url: project_location_path(@project), method: :post, class: "location-form" do %>
       <%= hidden_field_tag :project_id, @project_id %>
