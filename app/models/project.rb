@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
+  has_many :progresses
   attribute :items, :json, default: []
   attribute :method, :json, default: []
   geocoded_by :location

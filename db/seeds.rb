@@ -12,6 +12,8 @@ Benefit.destroy_all
 puts "All benefits destroyed"
 Space.destroy_all
 puts "All spaces destroyed"
+Progress.destroy_all
+puts "All progresses destroyed"
 Project.destroy_all
 puts "All projects destroyed"
 User.destroy_all
