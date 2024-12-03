@@ -8,7 +8,13 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @items = @project.items
-    
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "GardenEase-#{@project.name}", template: 'projects/pdf', locals: { project: @project }, formats: [:html], no_background: true
+      end
+    end
   end
 
   def my_saved_projects
