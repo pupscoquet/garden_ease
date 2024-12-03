@@ -21,9 +21,8 @@
                 <h5><%= project.name %></h5>
               <% end %>
               <%= link_to project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-                <p>Delete</p>
+                <p>&#128465; Delete</p>
               <% end %>
-                <%# <p>&#128465;</p> %>
             </li>
           <% end %>
         </ul>
