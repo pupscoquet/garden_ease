@@ -58,19 +58,8 @@
       <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
     <% end %>
   </div>
-  <button id="button-pdf" onclick="downloadPDF()">Download</button>
+
   <div class="separator"></div>
+
+  <%= link_to('Download', project_results_path(@project, format: :pdf))  %>
 </div>
-
-<script>
-  function downloadPDF() {
-    var pdf = new jsPDF('p', 'pt', 'a4');
-    $("#button-pdf").attr('hidden', 'true')
-    pdf.addHTML($("#project"), 0, -20, { allowTaint: true, useCORS: true, pagesplit: true }, function () {
-    pdf.save('GardenEaseProject.pdf');
-    $("#button-pdf").removeAttr('hidden', 'true')
-    });
-  }
-</script>
-
-<%# wicked ruby gem %>
