@@ -9,10 +9,19 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @project = Project.find(params[:project_id])
     @items = @project.items
-    @markers = @projects.geocoded.map do |flat|
+    @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
+    @markers = @projects.geocoded.map do |project|
       {
-        lat: project.latitude,
-        lng: project.longitude,
+        lat: @project.latitude,
+        lng: @project.longitude,
+      }
+    end
+    @markers += @florists.geocoded.map do |florist|
+      {
+        lat: florist.latitude,
+        lng: florist.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {florist: florist}),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end

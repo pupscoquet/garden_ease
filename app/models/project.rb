@@ -104,45 +104,45 @@ class Project < ApplicationRecord
     benefit = Benefit.find(selected_benefits.last)
 
     case benefit.id
-    when 1
+    when 1 || 21
       "1.freshfood.jpg"
-    when 2
+    when 2 || 22
       "2.sustainability.jpg"
-    when 3
+    when 3 || 23
       "3.air quality.jpg"
-    when 4
+    when 4 || 24
       "4.balcony.jpg"
-    when 5
+    when 5 || 25
       "18.shared projects.jpg"
-    when 6
+    when 6 || 26
       "5.decoration.jpg"
-    when 7
+    when 7 || 27
       "15.bonding activities.jpg"
-    when 8
+    when 8 || 28
       "20.jpg"
-    when 9
+    when 9 || 29
       "7.zen.jpg"
-    when 10
+    when 10 || 30
       "8.seasonal.jpg"
-    when 11
+    when 11 || 31
       "11.structural greenery.jpg"
-    when 12
+    when 12 || 32
       "9.healthy eating.jpg"
-    when 13
+    when 13 || 33
       "12.physical exercise.jpg"
-    when 14
+    when 14 || 34
       "14.fresh air.jpg"
-    when 15
+    when 15 || 35
       "13.stress relief.jpg"
-    when 16
+    when 16 || 36
       "19.group activity.jpg"
-    when 17
+    when 17 || 37
       "17.time outdoors.jpg"
-    when 18
+    when 18 || 38
       "16.educational.jpg"
-    when 19
+    when 19 || 39
       "10.shared project.jpg"
-    when 20
+    when 20 || 40
       "6.full sun.jpg"
     end
   end

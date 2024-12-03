@@ -185,8 +185,13 @@
 }
 
 .map {
-  width: 800px;
-  
   margin-left: 10px;
+  text-align: center;
+}
 
+.mapboxgl-popup {
+  max-width: 200px;
+}
+.mapboxgl-popup-content {
+  text-align: center;
 }
