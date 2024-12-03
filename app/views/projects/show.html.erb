@@ -33,8 +33,10 @@
     </div>
   </section>
 
-  <section class="project-content">
-    <div class="items">
+
+<section class="project-content">
+  <div class="items">
+    <div class="items-list">
       <h4>Items needed</h4>
       <ul>
         <% @project.items.each do |item| %>
@@ -42,16 +44,27 @@
         <% end %>
       </ul>
     </div>
-    <div class="separator"></div>
-    <div class="method">
-      <h4>Method</h4>
-      <ol>
-        <% @project.method.each do |step| %>
-          <li><%= step.capitalize %></li>
-        <% end %>
-      </ol>
-    </div>
+
+    <section class="map">
+    <h4 class= "map-title">Nearest florists in <%= @project.location.capitalize%>:</h4>
+    <div style="height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </section>
+  </div>
+
+  <div class="separator"></div>
+  
+  <div class="method">
+    <h4>Method</h4>
+    <ol>
+      <% @project.method.each do |step| %>
+        <li><%= step.capitalize %></li>
+      <% end %>
+    </ol>
+  </div>
+</section>
 
   <div id="saved-btn">
     <% unless current_user.projects.include?(@project) %>
