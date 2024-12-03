@@ -78,10 +78,12 @@
           padding: 12px;
           margin-top: 24px;
           color: #666;
+          opacity: 75%;
           transition: .3s ease-in-out;
+          font-size: 14px;
 
           &:hover {
-            color: #222;
+            opacity: 100%;
           }
         }
       }

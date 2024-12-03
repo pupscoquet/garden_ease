@@ -1,15 +1,25 @@
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(71, 145, 103, .8);
+  background-blend-mode: darken;
+  z-index: 10;
+  border-radius: 40px;
+  border: 1px solid #565;
+}
+
 #navbar {
   justify-content: space-between;
-  background-color: $green;
   height: 70px;
   position: fixed;
-  top: 0;
-  z-index: 10;
+  top: 40px;
+  left: 7vw;
+  right: 7vw;
   font-family: $headers-font;
-  width: 100vw;
+  width: 86vw;
 
   h4 {
     padding-top: 4px;
+    margin-left: 32px;
   }
 
   .header-bold {
@@ -51,7 +61,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    margin: 0 12px 0 16px;
+    margin: 0 32px 0 16px;
 
     &:hover {
       color: $yellow;
@@ -70,7 +80,8 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    right: 5px;
+    top: 32px;
+    right: -12px;
     z-index: 1;
   }
 
@@ -80,7 +91,7 @@
     text-decoration: none;
     display: block;
     width: 150px;
-    text-align: right;
+    text-align: center;
   }
 
   .option {
