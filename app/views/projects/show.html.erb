@@ -1,3 +1,10 @@
+<% content_for :head do %>
+  <meta property="og:title" content="GardenEase">
+  <meta property="og:image" content="<%= asset_url(@project.picture)%>">
+  <meta property=”og:url” content="<%= project_results_url(@project) %>">
+  <meta property=”og:description” content="<%= @project.standfirst %>">
+<% end %>
+
 <% @project.description %>
 <div id="project">
   <section class="project-title">
@@ -33,6 +40,33 @@
     </div>
   </section>
 
+  <section class="share-btns">
+    <div id="drop">
+      <div class="share-container">
+        <button class="share button-green">Share</button>
+        <div class="dropdown-content">
+          <a href='https://www.facebook.com/sharer.php?u=<%= project_results_url(@project) %>' class="option btn button-purple facebook" target="_blank">Share on Facebook</a>
+          <a href="https://web.whatsapp.com/send?text=Look at my gardening project! <%= project_results_url(@project) %>" class="option btn button-purple share-whatsapp" target="_blank">Share on WhatsApp</a>
+          <a href="https://www.instagram.com/" class="option btn button-purple share-instagram" target="_blank">Share on Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <%= link_to project_results_path(@project, format: :pdf) do %>
+      <button class="button-green">Download</button>
+    <% end %>
+
+    <div id="saved-btn">
+      <% if current_user.projects.include?(@project) %>
+          <button class="saved">Saved</button>
+      <% else %>
+        <%= link_to project_my_saved_projects_path do %>
+          <button class="button-green">Save</button>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+
   <section class="project-content">
     <div class="items">
       <h4>Items needed</h4>
@@ -53,13 +87,7 @@
     </div>
   </section>
 
-  <div id="saved-btn">
-    <% unless current_user.projects.include?(@project) %>
-      <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
-    <% end %>
-  </div>
-
   <div class="separator"></div>
 
-  <%= link_to('Download', project_results_path(@project, format: :pdf))  %>
+
 </div>

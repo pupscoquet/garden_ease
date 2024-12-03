@@ -17,15 +17,39 @@
   font-family: $headers-font;
   width: 86vw;
 
+  .flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .separator {
+      background-color: $yellow;
+      height: 20px;
+      width: 1px;
+      margin: 0 20px 0 12px;
+      border-radius: 2px;
+    }
+  }
+
   h4 {
     padding-top: 4px;
-    margin-left: 32px;
+    margin-left: 28px;
+  }
+
+  h6 {
+    font-weight: 300;
+    padding-top: 8px;
+    color: $yellow;
+  }
+
+  .title {
+    display: inline-block;
+    flex-grow: 1;
   }
 
   .header-bold {
     color: $yellow;
     font-size: 32px;
-    flex-grow: 1;
   }
 
   a {
@@ -81,7 +105,7 @@
     display: none;
     position: absolute;
     top: 32px;
-    right: -12px;
+    right: -8px;
     z-index: 1;
   }
 
