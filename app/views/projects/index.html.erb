@@ -13,15 +13,17 @@
       <div class="project-cards">
         <ul class="projects-ul">
           <% @projects.each do |project| %>
-            <%= link_to project_results_path(project) do %>
-              <li class="projects-li">
+            <li class="projects-li">
+              <%= link_to project_results_path(project) do %>
                 <div class="image-container">
                   <img class="plant-item"src="<%= asset_url(project.picture)%>" alt="plant">
                 </div>
                 <h5><%= project.name %></h5>
-                <p>&#128465;</p>
-              </li>
-            <% end %>
+              <% end %>
+              <%= link_to project_path(project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                <p>&#128465; Delete</p>
+              <% end %>
+            </li>
           <% end %>
         </ul>
     <% end %>

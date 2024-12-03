@@ -77,3 +77,5 @@ group :test do
 end
 
 gem 'faker'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

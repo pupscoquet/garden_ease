@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @project = Project.find(params[:project_id])
     @items = @project.items
+    
+    # map     
     @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
     @markers = @projects.geocoded.map do |project|
       {
@@ -23,6 +25,13 @@ class ProjectsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {florist: florist}),
         marker_html: render_to_string(partial: "marker")
       }
+    
+    # pdf     
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "GardenEase-#{@project.name}", template: 'projects/pdf', locals: { project: @project }, formats: [:html], no_background: true
+      end
     end
   end
 
@@ -35,7 +44,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
   end

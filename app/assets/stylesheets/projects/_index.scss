@@ -28,11 +28,6 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-    }
-
-    a {
-      text-decoration: none;
-      color: #000;
 
       li {
         height: 360px;
@@ -43,6 +38,11 @@
         background-color: #fff;
         border: 2px solid #fff;
         border-radius: 12px;
+
+        a {
+          text-decoration: none;
+          color: #000;
+        }
 
         .image-container {
           height: 240px;
@@ -78,10 +78,12 @@
           padding: 12px;
           margin-top: 24px;
           color: #666;
+          opacity: 75%;
           transition: .3s ease-in-out;
+          font-size: 14px;
 
           &:hover {
-            color: #222;
+            opacity: 100%;
           }
         }
       }

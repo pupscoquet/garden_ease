@@ -1,36 +1,38 @@
 <% @project.description %>
-<section class="project-title">
-  <div class="project-left">
-    <div class="top-titles">
-      <h3><%= @project.name %></h3>
-      <h4><%= @project.standfirst %></h4>
+<div id="project">
+  <section class="project-title">
+    <div class="project-left">
+      <div class="top-titles">
+        <h3><%= @project.name %></h3>
+        <h4><%= @project.standfirst %></h4>
 
-      <div class="flex">
-        <p><strong>Difficulty </strong><%= @project.difficulty %>/5</p>
-        <div class="separator"></div>
-        <p><strong>Duration </strong><%= @project.duration %></p>
+        <div class="flex">
+          <p><strong>Difficulty </strong><%= @project.difficulty %>/5</p>
+          <div class="separator"></div>
+          <p><strong>Duration </strong><%= @project.duration %></p>
+        </div>
+      </div>
+
+      <div class="fun-fact">
+        <div class="text">
+          <h5>Fun fact</h5>
+          <p><%= @project.fact %></p>
+        </div>
       </div>
     </div>
-
-    <div class="fun-fact">
-      <div class="text">
-        <h5>Fun fact</h5>
-        <p><%= @project.fact %></p>
+    <div class="project-right">
+      <div class="image-container">
+        <img src="<%= asset_url(@project.picture)%>" alt="illustration of people gardening">
       </div>
     </div>
-  </div>
-  <div class="project-right">
-    <div class="image-container">
-      <img src="<%= asset_url(@project.picture)%>" alt="illustration of people gardening">
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="description">
-  <div class="container">
-    <p><%= @project.description %></p>
-  </div>
-</section>
+  <section class="description">
+    <div class="container">
+      <p><%= @project.description %></p>
+    </div>
+  </section>
+
 
 <section class="project-content">
   <div class="items">
@@ -52,8 +54,8 @@
   </section>
   </div>
 
-
   <div class="separator"></div>
+  
   <div class="method">
     <h4>Method</h4>
     <ol>
@@ -62,13 +64,15 @@
       <% end %>
     </ol>
   </div>
-
 </section>
 
-<div id="saved-btn">
-  <% unless current_user.projects.include?(@project) %>
-    <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
-  <% end %>
-</div>
+  <div id="saved-btn">
+    <% unless current_user.projects.include?(@project) %>
+      <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
+    <% end %>
+  </div>
 
-<div class="separator"></div>
+  <div class="separator"></div>
+
+  <%= link_to('Download', project_results_path(@project, format: :pdf))  %>
+</div>
