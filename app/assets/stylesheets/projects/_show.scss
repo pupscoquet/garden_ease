@@ -117,7 +117,10 @@
   align-items: flex-start;
 
   .items {
-    width: 240px;
+    width: 700px;
+    .items-list{
+      width: 240px;
+    }
 
     h4 {
       margin-left: 12px;
@@ -185,16 +188,17 @@
 }
 
 .map {
-  text-align: center;
-  margin-inline: 20%;
+  text-align: left;
+  margin-left: 12px;
   margin-bottom: 15px;
+  max-width: 800px;
 }
 
 .map-title {
   margin-bottom: 5px;
-  color: $green;
-  font-size: 16px;
   text-align: left;
+  margin-left: 0 !important;
+  margin-top:25px;
 }
 
 .mapboxgl-popup {
