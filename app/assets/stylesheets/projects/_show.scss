@@ -192,7 +192,7 @@
 
 .project-content {
   padding-top: 44px;
-  height: 90vh;
+  // height: 90vh;
   width: 80vw;
   margin: 0 auto 40px auto;
   display: flex;
@@ -272,4 +272,39 @@
 }
 .mapboxgl-popup-content {
   text-align: center;
+}
+
+.delete {
+  text-decoration: none;
+
+  &:hover {
+    opacity: 100%;
+  }
+}
+
+
+
+.progresses {
+  width: 80vw;
+  border-top: 2px dashed $green;
+  padding-top: 32px;
+}
+
+.new-progress {
+  position: relative;
+  top: 10px;
+  left: -10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: $headers-font;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.upload-progress {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: $headers-font;
+  font-weight: 600;
+  font-size: 16px;
 }
