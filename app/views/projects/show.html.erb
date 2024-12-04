@@ -57,12 +57,15 @@
     <% end %>
 
     <div id="saved-btn">
-      <% if current_user.projects.include?(@project) %>
-          <button class="saved">Saved</button>
-      <% else %>
-        <%= link_to project_my_saved_projects_path do %>
-          <button class="button-green">Save</button>
-        <% end %>
+      <% if current_user  %>
+        <% if current_user.projects.include?(@project) %>
+            <button class="saved">Saved</button>
+            <% end %>
+        <% else %>
+          <%= link_to project_my_saved_projects_path do %>
+            <button class="button-green">Save</button>
+          <% end %>
+
       <% end %>
     </div>
   </section>
