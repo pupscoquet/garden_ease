@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     @items = @project.items
 
-    # map
     @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
     @markers = @projects.geocoded.map do |project|
       {
@@ -43,10 +42,20 @@ class ProjectsController < ApplicationController
     flash[:saved] = "Saved in your projects!"
   end
 
+  def pdf
+    @project = Project.find(params[:project_id])
+    redirect_to project_results_path(@project)
+  end
+
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
   end
 
+  private
+
+  def project_params
+    params.require(:project).permit(:project_id)
+  end
 end
