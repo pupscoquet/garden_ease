@@ -16,6 +16,12 @@ class ProgressesController < ApplicationController
     end
   end
 
+  def destroy
+    @progress = Progress.find(params[:id])
+    @progress.destroy
+    redirect_to project_results_path(@progress.project)
+  end
+
   private
 
   def progress_params
