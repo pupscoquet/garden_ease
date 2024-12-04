@@ -19,11 +19,12 @@ Rails.application.routes.draw do
   resources :projects, only: [:my_saved_project]
 
   resources :projects do
+    resources :progresses, only: [:create, :new]
     get "spaces/new", to: "spaces#new", as: :new_space
     post "spaces", to: "spaces#create"
     get "location/new", to: "location#new", as: :new_location
     post "location", to: "location#create"
-    # get "location", to: "projects#location", as: :location
+    get "projects", to: "projects#pdf", as: :pdf
     get "projects/show", to: "projects#show", as: :results
     get "my_saved_projects", to: "projects#my_saved_projects", as: :my_saved_projects
   end
