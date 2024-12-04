@@ -82,11 +82,11 @@ puts "20 USERS & 20 PROJECTS CREATED"
 end
 puts "20 BENEFITS CREATED"
 
-20.times do
-  Space.create!(type_of_space: spaces_array[space])
-  puts "#{space = space + 1} spaces created"
+spaces_array.each_with_index do |space, i|
+  Space.create!(type_of_space: space)
+  puts "#{i} spaces created"
 end
-puts "20 SPACES CREATED"
+puts "12 SPACES CREATED"
 
 Florist.create!(name: "Floristeria Maria", address: "Pg. de St. Joan, 23, L'Eixample, 08010 Barcelona")
 Florist.create!(name: "Floristeria NUNE", address: "Carrer de Sant Antoni Maria Claret, 42, Gràcia, 08025 Barcelona")

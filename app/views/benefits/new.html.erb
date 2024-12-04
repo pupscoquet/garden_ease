@@ -14,7 +14,7 @@
     <fieldset class="benefit-form">
       <div class="benefits-container">
         <h5 class="title">Practical</h5>
-        <% @practical_benefits.order(:id).each do |benefit| %>
+        <% @practical_benefits.each do |benefit| %>
             <% unique_id = "benefit_#{benefit.id}" %>
             <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
             <%= label_tag unique_id, benefit.type_of_benefit %><br>
@@ -23,7 +23,7 @@
 
       <div class="benefits-container">
         <h5 class="title">Aesthetic</h5>
-        <% @aesthetic_benefits.order(:id).each do |benefit| %>
+        <% @aesthetic_benefits.each do |benefit| %>
             <% unique_id = "benefit_#{benefit.id}" %>
             <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
             <%= label_tag unique_id, benefit.type_of_benefit %><br>
@@ -32,7 +32,7 @@
 
       <div class="benefits-container">
         <h5 class="title">Health</h5>
-        <% @health_benefits.order(:id).each do |benefit| %>
+        <% @health_benefits.each do |benefit| %>
             <% unique_id = "benefit_#{benefit.id}" %>
             <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
             <%= label_tag unique_id, benefit.type_of_benefit %><br>
@@ -41,7 +41,7 @@
 
       <div class="benefits-container">
         <h5 class="title">Community</h5>
-        <% @community_benefits.order(:type_of_benefit).each do |benefit| %>
+        <% @community_benefits.each do |benefit| %>
             <% unique_id = "benefit_#{benefit.id}" %>
             <%= check_box_tag 'selected_benefits[]', benefit.id, id: unique_id, class: 'checkbox' %>
             <%= label_tag unique_id, benefit.type_of_benefit %><br>
