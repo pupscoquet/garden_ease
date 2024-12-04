@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     post "spaces", to: "spaces#create"
     get "location/new", to: "location#new", as: :new_location
     post "location", to: "location#create"
-    # get "location", to: "projects#location", as: :location
+    get "projects", to: "projects#pdf", as: :pdf
     get "projects/show", to: "projects#show", as: :results
     get "my_saved_projects", to: "projects#my_saved_projects", as: :my_saved_projects
   end

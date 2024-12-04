@@ -25,10 +25,20 @@ class ProjectsController < ApplicationController
     flash[:saved] = "Saved in your projects!"
   end
 
+  def pdf
+    @project = Project.find(params[:project_id])
+    redirect_to project_results_path(@project)
+  end
+
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
   end
 
+  private
+
+  def project_params
+    params.require(:project).permit(:project_id)
+  end
 end

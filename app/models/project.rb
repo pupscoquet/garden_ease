@@ -49,6 +49,7 @@ class Project < ApplicationRecord
                   An unordered list of the method - max 1000 words, no headings,
                   put a '|' between each step.
                   A fun fact about it - max 20 words.
+                  
 
                   When generating the above, generate response in British
                   English and assume I don't know terms like 'proper drainage',
