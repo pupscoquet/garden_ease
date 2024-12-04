@@ -99,20 +99,42 @@
   </div>
 </section>
 
-  <div class="progresses">
-    <h4>My progress</h4>
-    <ul class="projects-ul">
-      <% @project.progresses.each do |progress| %>
-        <li class="projects-li">
-          <div class="image-container">
-            <img class="progress-photo" src="<%= url_for(progress.photo) %>" alt="Progress photo">
-          </div>
-          <h5 class="progress-date"><%= progress.created_at.strftime(' %e %B %y - %l:%M') %></h5>
-          <p><%= progress.description %></p>
-        </li>
+
+
+<div class="progresses">
+  <h4>My progress</h4>
+  <% if @project.progresses.empty? %>
+    <div class="no-progress">
+      <p>You haven't uploaded any progress yet.</p>
+      <p>
+        <%= link_to new_project_progress_path(@project) do %>
+          <button class="button-green upload-progress">Upload progress</button>
+        <% end %>
+      </p>
+    </div>
+  <% else%>
+    <p>
+      <%= link_to new_project_progress_path(@project) do %>
+        <button class="button-green new-progress">New progress</button>
       <% end %>
-    </ul>
-  </div>
+    </p>
+  <% end %>
+
+  <ul class="projects-ul">
+    <% @project.progresses.each do |progress| %>
+      <li class="projects-li">
+        <div class="image-container">
+          <img class="progress-photo" src="<%= url_for(progress.photo) %>" alt="Progress photo">
+        </div>
+        <h5 class="progress-date"><%= progress.created_at.strftime(' %e %B %y - %l:%M') %></h5>
+        <p><%= progress.description %></p>
+        <%= link_to progress_path(progress), class: 'delete', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <p>&#128465; Delete</p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
   <div class="separator"></div>
 </div>
