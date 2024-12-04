@@ -51,6 +51,8 @@ class Project < ApplicationRecord
                   An unordered list of the method - max 1000 words, no headings,
                   put a '|' between each step.
                   A fun fact about it - max 20 words.
+                  A list of 5 or 6 names of plants, flowers, or seed that I could
+                  use for  my project.
 
                   When generating the above, generate response in British
                   English and assume I don't know terms like 'proper drainage',
@@ -67,8 +69,12 @@ class Project < ApplicationRecord
                   / your generated response for items
                   / your generated response for method
                   / your generated response for fun fact
-                  "}]
+                  / your generated response for plants
+                  "
+                  }]
     })
+
+
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
     split_content = new_content.split('/')
@@ -78,6 +84,11 @@ class Project < ApplicationRecord
     method = split_content[7]
     split_method = method.split('|').map(&:strip)
 
+    plants = split_items[9]
+    split_plants = plants.split('|').map(&:strip)
+
+
+
     self.name = split_content[1]
     self.description = split_content[5]
     self.difficulty = split_content[3]
@@ -86,10 +97,12 @@ class Project < ApplicationRecord
     self.items = split_items
     self.method = split_method
     self.fact = split_content[8]
+    self.plants = split_plants
     self.save
 
-
     return items
+    return plants
+
   end
 
   def description

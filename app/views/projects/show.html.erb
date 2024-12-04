@@ -55,7 +55,7 @@
   </div>
 
   <div class="separator"></div>
-  
+
   <div class="method">
     <h4>Method</h4>
     <ol>
@@ -63,14 +63,20 @@
         <li><%= step.capitalize %></li>
       <% end %>
     </ol>
+
+    <div id="saved-btn">
+      <% if current_user.projects.include?(@project) == false %>
+        <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
+      <% else %>
+        <p>Saved</p>
+      <% end %>
+    </div>
   </div>
+
+
 </section>
 
-  <div id="saved-btn">
-    <% unless current_user.projects.include?(@project) %>
-      <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
-    <% end %>
-  </div>
+
 
   <div class="separator"></div>
 
