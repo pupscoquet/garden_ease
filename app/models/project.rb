@@ -37,7 +37,7 @@ class Project < ApplicationRecord
                   content: "I'm a complete beginner to gardening.
                   I want a new gardening project that suits my space.
 
-                  These are the qualities of my space: #{selected_spaces}
+                  These are the qualities of my space: #{selected_spaces}, #{spaces_input}
                   And I want to get this out of my project: #{selected_benefits}
                   Take into account the climate here: #{location}
 
@@ -57,8 +57,8 @@ class Project < ApplicationRecord
                   When generating the above, generate response in British
                   English and assume I don't know terms like 'proper drainage',
                   'trellis' or 'mulch' and that I'd need an explanation of how
-                  to do things like sow seeds in pots. Leave out any special
-                  characters like # and *.
+                  to do things like sow seeds in pots. Leave out all special
+                  characters like #, * and /.
 
                   I need this to be generated as follows:
                   / your generated response for name
@@ -121,31 +121,31 @@ class Project < ApplicationRecord
     when 7 || 27
       "15.bonding activities.jpg"
     when 8 || 28
-      "20.jpg"
-    when 9 || 29
       "7.zen.jpg"
-    when 10 || 30
+    when 9 || 29
       "8.seasonal.jpg"
-    when 11 || 31
+    when 10 || 30
       "11.structural greenery.jpg"
-    when 12 || 32
+    when 11 || 31
       "9.healthy eating.jpg"
-    when 13 || 33
+    when 12 || 32
       "12.physical exercise.jpg"
-    when 14 || 34
+    when 13 || 33
       "14.fresh air.jpg"
-    when 15 || 35
+    when 14 || 34
       "13.stress relief.jpg"
-    when 16 || 36
+    when 15 || 35
       "19.group activity.jpg"
-    when 17 || 37
+    when 16 || 36
       "17.time outdoors.jpg"
-    when 18 || 38
+    when 17 || 37
       "16.educational.jpg"
-    when 19 || 39
+    when 18 || 38
       "10.shared project.jpg"
-    when 20 || 40
+    when 19 || 39
       "6.full sun.jpg"
+    when 8 || 28
+      "20.jpg"
     end
   end
 

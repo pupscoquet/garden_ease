@@ -3,7 +3,11 @@ class BenefitsController < ApplicationController
 
   def new
     @benefits = Benefit.all
-    # redirect_to new_project_benefit_path(@project)
+
+    @practical_benefits = Benefit.where(id: 1..5)
+    @aesthetic_benefits = Benefit.where(id: 6..10)
+    @health_benefits = Benefit.where(id: 11..15)
+    @community_benefits = Benefit.where(id: 16..20)
   end
 
 
