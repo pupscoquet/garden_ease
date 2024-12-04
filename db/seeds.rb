@@ -31,7 +31,6 @@ benefits_array = ["Fresh food",
   "Self-reliance",
   "Decoration",
   "Privacy",
-  "Space enhancement",
   "Zen spaces",
   "Seasonal colour",
   "Structural greenery",
@@ -43,28 +42,21 @@ benefits_array = ["Fresh food",
   "Bonding activities",
   "Educational purposes",
   "Shared projects",
-  "Group activity"]
+  "Group activity",
+  "Neighborhood engagement"]
 
 spaces_array = ["Balcony",
   "Terrace",
   "Windowsill",
   "Interior",
   "Garden",
-  "Full sun",
+  "Sunny",
   "Partial shade",
-  "Full shade",
-  "North-facing",
-  "South-facing",
-  "Windy",
   "Dry",
+  "Windy",
   "Humid",
-  "Frost-prone",
-  "Tropical",
-  "Rocky or uneven ground",
-  "Raised beds or platforms",
-  "Flat ground",
-  "Portable container-friendly",
-  "Water access"]
+  "Uneven or sloped",
+  "Portable container-friendly",]
 
 puts "Creating everything..."
 20.times do
