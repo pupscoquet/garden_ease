@@ -120,7 +120,7 @@ class Project < ApplicationRecord
       "5.decoration.jpg"
     when "Privacy"
       "15.bonding activities.jpg"
-    when "Zen space"
+    when "Zen spaces"
       "7.zen.jpg"
     when "Seasonal colour"
       "8.seasonal.jpg"
