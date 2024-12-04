@@ -39,7 +39,7 @@ class Project < ApplicationRecord
                   content: "I'm a complete beginner to gardening.
                   I want a new gardening project that suits my space.
 
-                  These are the qualities of my space: #{selected_spaces}
+                  These are the qualities of my space: #{selected_spaces}, #{spaces_input}
                   And I want to get this out of my project: #{selected_benefits}
                   Take into account the climate here: #{location}
 
@@ -58,11 +58,12 @@ class Project < ApplicationRecord
                   for  my project, put a '|' between each plant.
 
 
+
                   When generating the above, generate response in British
                   English and assume I don't know terms like 'proper drainage',
                   'trellis' or 'mulch' and that I'd need an explanation of how
-                  to do things like sow seeds in pots. Leave out any special
-                  characters like # and *.
+                  to do things like sow seeds in pots. Leave out all special
+                  characters like #, * and /.
 
 
                   I need this to be generated as follows:
@@ -119,47 +120,47 @@ class Project < ApplicationRecord
 
     benefit = Benefit.find(selected_benefits.last)
 
-    case benefit.id
-    when 1 || 21
+    case benefit.type_of_benefit
+    when "Fresh food"
       "1.freshfood.jpg"
-    when 2 || 22
+    when "Sustainability"
       "2.sustainability.jpg"
-    when 3 || 23
+    when "Air quality improvement"
       "3.air quality.jpg"
-    when 4 || 24
+    when "Cost savings"
       "4.balcony.jpg"
-    when 5 || 25
+    when "Decoration"
       "18.shared projects.jpg"
-    when 6 || 26
+    when "Decoration"
       "5.decoration.jpg"
-    when 7 || 27
+    when "Privacy"
       "15.bonding activities.jpg"
-    when 8 || 28
-      "20.jpg"
-    when 9 || 29
+    when "Zen spaces"
       "7.zen.jpg"
-    when 10 || 30
+    when "Seasonal colour"
       "8.seasonal.jpg"
-    when 11 || 31
+    when "Structural greenery"
       "11.structural greenery.jpg"
-    when 12 || 32
+    when "Healthy eating"
       "9.healthy eating.jpg"
-    when 13 || 33
+    when "Physical exercise"
       "12.physical exercise.jpg"
-    when 14 || 34
+    when "Time outdoors"
       "14.fresh air.jpg"
-    when 15 || 35
+    when "Stress relief"
       "13.stress relief.jpg"
-    when 16 || 36
+    when "Fresh air"
       "19.group activity.jpg"
-    when 17 || 37
+    when "Bonding activities"
       "17.time outdoors.jpg"
-    when 18 || 38
+    when "Educational purposes"
       "16.educational.jpg"
-    when 19 || 39
+    when "Shared projects"
       "10.shared project.jpg"
-    when 20 || 40
+    when "Group activity"
       "6.full sun.jpg"
+    when "Neighborhood engagement"
+      "20.jpg"
     end
   end
 

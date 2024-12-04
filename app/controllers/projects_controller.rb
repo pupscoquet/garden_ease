@@ -47,7 +47,6 @@ class ProjectsController < ApplicationController
 
   def pdf
     @project = Project.find(params[:project_id])
-    redirect_to project_results_path(@project)
   end
 
   def destroy

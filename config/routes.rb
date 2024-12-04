@@ -33,4 +33,6 @@ Rails.application.routes.draw do
     get "projects/show", to: "projects#show", as: :results
     get "my_saved_projects", to: "projects#my_saved_projects", as: :my_saved_projects
   end
+
+  resources :progresses, only: [:destroy]
 end

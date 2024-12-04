@@ -9,7 +9,7 @@
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=archivo@200,201,400,401,600,601&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+
     <%= yield :head %>
 
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
@@ -17,11 +17,12 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+    <% unless action_name == "pdf" %>
+      <%= render "shared/navbar" %>
+      <div style="margin-top: 160px;"></div>
+    <% end %>
 
-    <div style="margin-top: 140px;">
-      <%= yield %>
-    </div>
+    <%= render "shared/flashes" %>
+    <%= yield %>
   </body>
 </html>

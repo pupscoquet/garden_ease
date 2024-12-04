@@ -1,70 +1,48 @@
-<html>
-  <head>
-      <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=archivo@200,201,400,401,600,601&display=swap" rel="stylesheet">
-      <style>
-        h3 h4 {
-          font-family: "Clash Display", "Helvetica", "sans-serif";
-        }
+<% @project.description %>
+<div style="margin-top: 80px;"></div>
 
-        body {
-          font-family: "Archivo", "Helvetica", "sans-serif";
-        }
+<div id="project-pdf">
+  <section class="project-title">
+    <div class="project-left">
+      <div class="top-titles">
 
-        .flex {
-          display: -webkit-box;
-        }
-      </style>
-  </head>
-  <body>
-  <% project.description %>
-  <div id="project">
-    <section class="project-title">
-      <div class="project-left">
-        <div class="top-titles">
+        <h3><%= @project.name %></h3>
+        <h4><%= @project.standfirst %></h4>
 
-          <h3><%= project.name %></h3>
-          <h4><%= project.standfirst %></h4>
-
-          <div class="flex">
-            <p><strong>Difficulty </strong><%= project.difficulty %>/5</p>
-            <div class="separator"></div>
-            <p><strong>Duration </strong><%= project.duration %></p>
-          </div>
-
+        <div class="flex">
+          <p><strong>Difficulty </strong><%= @project.difficulty %>/5</p>
+          <div class="separator"></div>
+          <p><strong>Duration </strong><%= @project.duration %></p>
         </div>
       </div>
-      <div class="project-right">
-        <div class="image-container">
-          <img src="<%= asset_url(project.picture)%>" alt="illustration of people gardening">
-        </div>
+    </div>
+    <div class="project-right">
+      <div class="image-container">
+        <img src="<%= asset_url(@project.picture)%>" alt="illustration of people gardening">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="description">
-      <div class="container">
-        <p><%= project.description %></p>
-      </div>
-    </section>
+  <section class="project-content">
+    <div class="items">
+      <h4>Items needed</h4>
+      <ul>
+        <% @project.items.each do |item| %>
+          <li><%= item.capitalize %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="method">
+      <h4>Method</h4>
+      <ol>
+        <% @project.method.each do |step| %>
+          <li><%= step.capitalize %></li>
+        <% end %>
+      </ol>
+    </div>
+  </section>
+</div>
 
-    <section class="project-content">
-      <div class="items">
-        <h4>Items needed</h4>
-        <ul>
-          <% project.items.each do |item| %>
-            <li><%= item.capitalize %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="separator"></div>
-      <div class="method">
-        <h4>Method</h4>
-        <ol>
-          <% project.method.each do |step| %>
-            <li><%= step.capitalize %></li>
-          <% end %>
-        </ol>
-      </div>
-    </section>
-  </div>
-  </body>
-</html>
+<script>
+  window.print()
+</script>

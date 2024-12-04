@@ -12,11 +12,12 @@
 <section class="selected-form">
   <%= form_with url: "/projects/#{@project.id}/spaces" do |form| %>
     <fieldset>
-      <% @spaces.order(:type_of_space).each do |space| %>
+      <% @spaces.order(:id).each do |space| %>
         <% unique_id = "space_#{space.id}" %>
         <%= check_box_tag 'selected_spaces[]', space.id, id: unique_id, class: 'checkbox' %>
         <%= label_tag unique_id, space.type_of_space %>
-      <% end %>
+      <% end %><br>
+      <%= form.text_area :spaces_input, placeholder: "Type other qualities here..." %>
     </fieldset>
     <%= submit_tag "Next", class: "button-purple selected-btn" %>
   <% end %>
