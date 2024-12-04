@@ -6,15 +6,32 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @projects = Project.all
     @project = Project.find(params[:project_id])
     @items = @project.items
 
-    # respond_to do |format|
-    #   format.html
-    #   format.pdf do
-    #     render pdf: "GardenEase-#{@project.name}", template: 'projects/pdf', locals: { project: @project }, formats: [:html], no_background: true
-    #   end
-    # end
+    @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
+    @markers = @projects.geocoded.map do |project|
+      {
+        lat: @project.latitude,
+        lng: @project.longitude,
+      }
+    end
+    @markers += @florists.geocoded.map do |florist|
+      {
+        lat: florist.latitude,
+        lng: florist.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {florist: florist}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
+    # pdf
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "GardenEase-#{@project.name}", template: 'projects/pdf', locals: { project: @project }, formats: [:html], no_background: true
+      end
+    end
   end
 
   def my_saved_projects

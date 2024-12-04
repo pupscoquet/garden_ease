@@ -12,6 +12,8 @@ Benefit.destroy_all
 puts "All benefits destroyed"
 Space.destroy_all
 puts "All spaces destroyed"
+Progress.destroy_all
+puts "All progresses destroyed"
 Project.destroy_all
 puts "All projects destroyed"
 User.destroy_all
@@ -83,7 +85,7 @@ end
 puts "20 USERS & 20 PROJECTS CREATED"
 
 20.times do
-  Benefit.create!(type_of_benefit: benefits_array[benefit])
+  Benefit.create(type_of_benefit: benefits_array[benefit])
   puts "#{benefit = benefit + 1} benefits created"
 end
 puts "20 BENEFITS CREATED"
@@ -93,3 +95,13 @@ puts "20 BENEFITS CREATED"
   puts "#{space = space + 1} spaces created"
 end
 puts "20 SPACES CREATED"
+
+Florist.create!(name: "Floristeria Maria", address: "Pg. de St. Joan, 23, L'Eixample, 08010 Barcelona")
+Florist.create!(name: "Floristeria NUNE", address: "Carrer de Sant Antoni Maria Claret, 42, Gràcia, 08025 Barcelona")
+Florist.create!(name: "Floristeria Soriano", address: "Av. de Gaudí, 6, L'Eixample, 08025 Barcelona")
+Florist.create!(name: "Floristería Floredana", address: "C/ de Sicília, 390, Gracia, 08025 Barcelonaa")
+Florist.create!(name: "Ātmā Flors & Art", address: "C/ de Padilla, 254, Eixample, 08025 Barcelona")
+Florist.create!(name: "Ladyflor", address: "Carrer de Bailèn, 169, L'Eixample, 08037 Barcelona")
+Florist.create!(name: "LA FLORETA ", address: "Pg. de St. Joan, 190, Gràcia, 08037 Barcelona")
+Florist.create!(name: "Floristeria La Prímula", address: "Carrer de Sardenya, 497, Gràcia, 08025 Barcelona")
+Florist.create!(name: "Flores Navarro", address: "Carrer de València, 320, L'Eixample, 08009 Barcelona")
