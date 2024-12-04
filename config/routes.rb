@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   root to: "pages#home", as: :home
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   # get "sign_out", to: "/users/sign_out"
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get 'plants/image_generator'
+
 
   get "benefits/new", to: "benefits#new", as: :benefits
   post "benefits", to: "benefits#create", as: :selected_benefits

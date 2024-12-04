@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     @items = @project.items
 
+
+    # map
     @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
     @markers = @projects.geocoded.map do |project|
       {
@@ -25,6 +27,7 @@ class ProjectsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+
     # pdf
     respond_to do |format|
       format.html

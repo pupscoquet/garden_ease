@@ -3,9 +3,13 @@
   <meta property="og:image" content="<%= asset_url(@project.picture) %>">
   <meta property=”og:url” content="<%= project_results_url(@project) %>">
   <meta property=”og:description” content="<%= @project.standfirst %>">
+
 <% end %>
 
+
+
 <% @project.description %>
+
 <div id="project">
   <section class="project-title">
     <div class="project-left">
@@ -69,35 +73,59 @@
 
   <section class="project-content">
     <div class="items">
-    <div class="items-list">
-      <h4>Items needed</h4>
-      <ul>
-        <% @project.items.each do |item| %>
-          <li><%= item.capitalize %></li>
-        <% end %>
-      </ul>
+      <div class="lists">
+        <div class="list">
+          <h4>Items needed</h4>
+          <ul>
+            <% @project.items.each do |item| %>
+              <li><%= item.capitalize %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="list">
+          <h4>Plants you can use</h4>
+          <ul>
+            <% @project.plants.each do |plant| %>
+              <li><%= plant.capitalize %>
+              <img class="image-url"
+                src="<%= plants_image_generator_path(keyword: plant)%>"
+                alt="<%= plant %>">
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <section class="map">
+        <h4 class= "map-title">Nearest florists in <%= @project.location.capitalize%>:</h4>
+        <div style="height: 400px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </section>
     </div>
 
-    <section class="map">
-    <h4 class= "map-title">Nearest florists in <%= @project.location.capitalize%>:</h4>
-    <div style="height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="separator"></div>
+
+    <div class="method">
+      <h4>Method</h4>
+      <ol>
+        <% @project.method.each do |step| %>
+          <li><%= step.capitalize %></li>
+        <% end %>
+      </ol>
+
+      <div id="saved-btn">
+        <% if current_user.projects.include?(@project) == false %>
+          <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
+        <% else %>
+          <p>Saved</p>
+        <% end %>
+      </div>
+    </div>
   </section>
-  </div>
 
-  <div class="separator"></div>
-
-  <div class="method">
-    <h4>Method</h4>
-    <ol>
-      <% @project.method.each do |step| %>
-        <li><%= step.capitalize %></li>
-      <% end %>
-    </ol>
-  </div>
-</section>
 
 
 
@@ -135,6 +163,7 @@
     <% end %>
   </ul>
 </div>
+
 
   <div class="separator"></div>
 </div>
