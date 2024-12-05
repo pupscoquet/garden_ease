@@ -188,9 +188,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 440px;
-  margin: 32px auto 0px auto;
-  padding-bottom: 32px;
+  width: 480px;
+  margin: 32px auto;
+  padding: 16px;
+  border-top: 1px dashed $green;
   border-bottom: 1px dashed $green;
 
   #drop {
@@ -242,7 +243,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  border-top: 1px dashed $green;
   border-bottom: 1px dashed $green;
 
   .items {
@@ -342,7 +342,7 @@
 
 .map-title {
   bottom: 0;
-  margin: 16px 0;
+  padding: 16px 0;
 }
 
 .mapboxgl-popup {
@@ -366,11 +366,6 @@
     opacity: 100%;
   }
 }
-
-// .progresses {
-//   width: 80vw;
-//   padding-top: 32px;
-// }
 
 .progresses-title {
   margin-left: 16px;
@@ -409,7 +404,11 @@
 
 .carousel-container {
   text-align: center;
-  margin-top: 20px;
+
+  h4 {
+    bottom: 0;
+    padding-top: 32px;
+  }
 }
 
 .carousel2 {
@@ -422,24 +421,28 @@
     justify-content: space-around;
     list-style: none;
     padding: 0;
-    margin-inline: 5px;
+    margin-inline: 12px;
+    margin-bottom: 0;
   }
 
   li{
     display: inline;
+    border-radius: 8px;
+    margin-right: 10px;
   }
 
   img {
     height: 260px;
-    width: 390px;
+    width: 320px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 1px 1px 1px rgba(147, 125, 125, 0.527);
+    background-color: #fff;;
   }
 
-  h6 {
+  h5 {
     text-align: left;
-    margin-left:5px;
+    margin: 8px 0 0 8px;
   }
 }
 
