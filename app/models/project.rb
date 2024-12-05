@@ -4,6 +4,8 @@ class Project < ApplicationRecord
   has_many :progresses
   attribute :items, :json, default: []
   attribute :method, :json, default: []
+  attribute :plants, :json, default: []
+  attribute :image_url, :json, default: []
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
@@ -47,11 +49,14 @@ class Project < ApplicationRecord
                   Difficulty - between 1-5. Has to be above 0.
                   Duration - in either hours, days or weeks.
                   Description - ~80 words. Mention the location (#{location}) here.
-                  A broken down bulleted list of 1-10 items I would need, put a
+                  A broken down bulleted list of 1-7 items I would need, put a
                   '|' between each item.
                   An unordered list of the method - max 1000 words, no headings,
-                  put a '|' between each step.
+                  put a '|' and <br> between each step.
                   A fun fact about it - max 20 words.
+                  A broken down bulleted list of 4 plants that are mentioned
+                  for  my project, put a '|' between each plant.
+
 
 
                   When generating the above, generate response in British
@@ -59,6 +64,7 @@ class Project < ApplicationRecord
                   'trellis' or 'mulch' and that I'd need an explanation of how
                   to do things like sow seeds in pots. Leave out all special
                   characters like #, * and /.
+
 
                   I need this to be generated as follows:
                   / your generated response for name
@@ -69,8 +75,12 @@ class Project < ApplicationRecord
                   / your generated response for items
                   / your generated response for method
                   / your generated response for fun fact
-                  "}]
+                  / your generated response for plants
+                  "
+                  }]
     })
+
+
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
     split_content = new_content.split('/')
@@ -80,6 +90,9 @@ class Project < ApplicationRecord
     method = split_content[7]
     split_method = method.split('|').map(&:strip)
 
+    plants = split_content[9]
+    split_plants = plants.split('|').map(&:strip)
+
     self.name = split_content[1]
     self.description = split_content[5]
     self.difficulty = split_content[3]
@@ -88,63 +101,61 @@ class Project < ApplicationRecord
     self.items = split_items
     self.method = split_method
     self.fact = split_content[8]
+    self.plants = split_plants
+
     self.save
 
-
-    return items
   end
 
+
   def description
-    if super.blank?
-      set_content
-   else
-      super
-    end
+    super.blank? ? set_content : super
   end
 
   def picture
+
     benefit = Benefit.find(selected_benefits.last)
 
-    case benefit.id
-    when 1 || 21
+    case benefit.type_of_benefit
+    when "Fresh food"
       "1.freshfood.jpg"
-    when 2 || 22
+    when "Sustainability"
       "2.sustainability.jpg"
-    when 3 || 23
+    when "Air quality improvement"
       "3.air quality.jpg"
-    when 4 || 24
+    when "Cost savings"
       "4.balcony.jpg"
-    when 5 || 25
+    when "Decoration"
       "18.shared projects.jpg"
-    when 6 || 26
+    when "Decoration"
       "5.decoration.jpg"
-    when 7 || 27
+    when "Privacy"
       "15.bonding activities.jpg"
-    when 8 || 28
+    when "Zen spaces"
       "7.zen.jpg"
-    when 9 || 29
+    when "Seasonal colour"
       "8.seasonal.jpg"
-    when 10 || 30
+    when "Structural greenery"
       "11.structural greenery.jpg"
-    when 11 || 31
+    when "Healthy eating"
       "9.healthy eating.jpg"
-    when 12 || 32
+    when "Physical exercise"
       "12.physical exercise.jpg"
-    when 13 || 33
+    when "Time outdoors"
       "14.fresh air.jpg"
-    when 14 || 34
+    when "Stress relief"
       "13.stress relief.jpg"
-    when 15 || 35
+    when "Fresh air"
       "19.group activity.jpg"
-    when 16 || 36
+    when "Bonding activities"
       "17.time outdoors.jpg"
-    when 17 || 37
+    when "Educational purposes"
       "16.educational.jpg"
-    when 18 || 38
+    when "Shared projects"
       "10.shared project.jpg"
-    when 19 || 39
+    when "Group activity"
       "6.full sun.jpg"
-    when 8 || 28
+    when "Neighborhood engagement"
       "20.jpg"
     end
   end

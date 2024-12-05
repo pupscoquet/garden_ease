@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   root to: "pages#home", as: :home
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,6 +14,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  get 'plants/image_generator'
+
+
   get "benefits/new", to: "benefits#new", as: :benefits
   post "benefits", to: "benefits#create", as: :selected_benefits
 
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
     post "spaces", to: "spaces#create"
     get "location/new", to: "location#new", as: :new_location
     post "location", to: "location#create"
+    post "projects", to: "projects#generate", as: :generate
     get "projects", to: "projects#pdf", as: :pdf
     get "projects/show", to: "projects#show", as: :results
     get "my_saved_projects", to: "projects#my_saved_projects", as: :my_saved_projects

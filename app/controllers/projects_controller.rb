@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     @items = @project.items
 
+
+    # map
     @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
     @markers = @projects.geocoded.map do |project|
       {
@@ -25,6 +27,7 @@ class ProjectsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+
     # pdf
     respond_to do |format|
       format.html
@@ -32,6 +35,12 @@ class ProjectsController < ApplicationController
         render pdf: "GardenEase-#{@project.name}", template: 'projects/pdf', locals: { project: @project }, formats: [:html], no_background: true
       end
     end
+  end
+
+  def generate
+    @project = Project.find(params[:project_id])
+    @project.set_content
+    redirect_to project_results_path(@project)
   end
 
   def my_saved_projects
