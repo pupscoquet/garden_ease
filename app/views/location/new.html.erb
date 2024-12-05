@@ -5,9 +5,9 @@
   </section>
 
   <div class="sidebar">
-    <i class="two"></i>&#9675;<br>
-    <i class="three"></i>&#9675;<br>
-    <i class="one">&#9679;</i><br>
+      <p class="two"></p>&#9675;<br>
+      <p class="three"></p>&#9675;<br>
+      <p class="one"></p>&#9679;<br>
   </div>
 
   <section class="selected-form" data-controller="popup">
@@ -16,7 +16,7 @@
       <%= text_field_tag :location, nil, placeholder: "Your location...", id: "city" %>
       <%= submit_tag "Submit", class: "btn button-purple popup", data: { action: "click->popup#loading" } %>
     <% end %>
-      <span class="mypopup loader" data-popup-target= "popupMessage">One moment... <br> We're working on your project! <br>
+      <span class="mypopup loader" data-popup-target="popupMessage"><h4>One moment... <br> We're working on your project!</h4><br>
       <img class="tree" id="tronc" src="<%= asset_url("tree.png")%>" alt="tree"></span>
 
   </section>
