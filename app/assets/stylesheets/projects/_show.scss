@@ -363,10 +363,10 @@
   }
 }
 
-.progresses {
-  width: 80vw;
-  padding-top: 32px;
-}
+// .progresses {
+//   width: 80vw;
+//   padding-top: 32px;
+// }
 
 .progresses-title {
   margin-left: 16px;
@@ -377,7 +377,8 @@
   position: relative;
   top: 10px;
   left: -10px;
-  margin: 0 0 80px 20px;
+  margin: 0 90px 40px;
+  // margin-bottom: 40px;
   padding: 10px 20px;
   border-radius: 20px;
   font-family: $headers-font;
