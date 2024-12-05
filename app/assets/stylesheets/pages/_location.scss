@@ -7,11 +7,19 @@
 
   input[type=text] {
     background-color: $yellow;
+    font-family: $headers-font;
+    font-size: 20px;
+    font-weight: 300;
     border: none;
     border-bottom: 1px solid #333;
     border-radius: 0;
     margin-bottom: 20px;
     width: 80%;
+    padding: 8px 0;
+
+    &::placeholder {
+      color: #333 !important;
+    }
     padding: 8px 8px;
   }
 

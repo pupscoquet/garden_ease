@@ -32,18 +32,20 @@
 
 .sidebar {
   grid-column: 1;
-  position:absolute;
+  position: absolute;
   left: 3%;
-  top:45%;
+  top: 45%;
   color: #361d2e79;
   font-size: 25px;
-  line-height: 95%;
-  box-shadow: 1px 1px 1px #361d2e14;
+  line-height: 80%;
   padding: 4px;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-radius: 20px;
   transition: 1s;
+
+  .two .three {
+    transform: scale(0.7);
+  }
 }
 
 
@@ -118,14 +120,18 @@
   background-color: $yellow;
   font-family: $headers-font;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
   opacity: 100%;
   margin-top: 32px;
-  color: #000;
   border: none;
   border-bottom: 1px solid #333;
   margin-bottom: 12px;
   width: 40%;
   height: 36px;
+  border-radius: 0;
   padding: 8px 4px;
+
+  &::placeholder {
+    color: #333 !important;
+  }
 }

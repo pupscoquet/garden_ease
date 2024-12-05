@@ -1,34 +1,37 @@
 .location-form{
-  position:relative;
+  position: relative;
 }
 
 .tree {
   position: absolute;
-  bottom:-80px;
-  right:10%;
-  width:400px;
+  bottom: -100px;
+  right: 8%;
+  width: 420px;
   height: 600px;
+  filter: brightness(80%);
 }
 
 
 .loader {
   display: none;
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 35%;
   left: 50%;
-  transform:translate(-50%, -50%);
-  border-radius: 20px;
-  height: 70vh;
-  width: 75vw;
-  z-index: 1000;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
   background-color: $yellow;
   text-align: left;
   padding-left: 8%;
-  padding-top: 200px;
-  font-size: 34px;
-  color: $green;
-  font-family: $headers-font;
 
+
+  h4 {
+    font-size: 34px;
+    color: $green;
+    font-family: $headers-font;
+    margin: 40% 0 0 5%;
+  }
 }
 
 .mypopup.show {
@@ -45,8 +48,8 @@ body.popup-open {
 .loader:before {
   content: "";
   position: absolute;
-  bottom: 32%;
-  right: 10%;
+  bottom: 22%;
+  right: 9%;
   width: 50px;
   height: 85px;
   background:
@@ -60,7 +63,7 @@ body.popup-open {
   transform: rotate(-26deg);
   transform-origin: 100% 80%;
   animation: l16 .25s infinite linear alternate;
-  z-index: 2000;
+  z-index: 9;
   margin-right: 155px;
 }
 
