@@ -1,5 +1,6 @@
 require 'json'
 require 'net/http'
+require 'open-uri'
 
 class PlantsController < ApplicationController
   def image_generator
