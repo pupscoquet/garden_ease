@@ -104,7 +104,6 @@ class Project < ApplicationRecord
     self.plants = split_plants
 
     self.save
-
   end
 
 
