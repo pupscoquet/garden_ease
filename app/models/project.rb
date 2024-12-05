@@ -109,11 +109,7 @@ class Project < ApplicationRecord
 
 
   def description
-    if super.blank?
-      set_content
-   else
-      super
-    end
+    super.blank? ? set_content : super
   end
 
   def picture

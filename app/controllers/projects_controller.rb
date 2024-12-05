@@ -37,6 +37,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def generate
+    @project = Project.find(params[:project_id])
+    @project.set_content
+    redirect_to project_results_path(@project)
+  end
+
   def my_saved_projects
     @project = Project.find(params[:project_id])
     @project.user_id = current_user.id

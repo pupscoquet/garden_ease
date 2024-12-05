@@ -118,14 +118,18 @@
   background-color: $yellow;
   font-family: $headers-font;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
   opacity: 100%;
   margin-top: 32px;
-  color: #000;
   border: none;
   border-bottom: 1px solid #333;
   margin-bottom: 12px;
   width: 40%;
   height: 36px;
+  border-radius: 0;
   padding: 8px 4px;
+
+  &::placeholder {
+    color: #333 !important;
+  }
 }
