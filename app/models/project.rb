@@ -45,7 +45,7 @@ class Project < ApplicationRecord
                   Name.
                   Standfirst.
                   Difficulty - between 1-5. Has to be above 0.
-                  Duration - in either hours, days or weeks.
+                  Duration - in either days, weeks or months. Don't include word 'duration'.
                   Description - ~80 words. Mention the location (#{location}) here.
                   A broken down bulleted list of 1-10 items I would need, put a
                   '|' between each item.
@@ -64,7 +64,7 @@ class Project < ApplicationRecord
                   / your generated response for name
                   / your generated response for standfirst
                   / your generated response for difficulty
-                  / your generated response for duration like '1 week' or '2 months'
+                  / your generated response for duration
                   / your generated response for description
                   / your generated response for items
                   / your generated response for method
