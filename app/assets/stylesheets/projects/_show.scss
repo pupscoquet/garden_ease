@@ -244,8 +244,17 @@
 
   .items {
     width: 700px;
-    .items-list{
+
+    .lists{
+      align-items: stretch;
+      display: flex;
+    }
+
+    .list{
       width: 240px;
+      display: inline-block;
+      margin-right: 30px;
+
     }
 
     h4 {
@@ -258,7 +267,7 @@
       padding: 0 !important;
 
       li {
-        width: 320px;
+        width: 240px;
         border-top: 1px dashed $green;
         margin: 14px 5px 5px 10px;
         padding-top: 8px;
@@ -294,6 +303,25 @@
   }
 }
 
+#saved-btn {
+  position: relative;
+  margin: 80px auto 0 auto;
+  text-align: center;
+  max-width: 320px;
+  color: $green;
+
+  .selected-btn {
+    text-decoration: none;
+    margin-top: 40px;
+
+    &:hover {
+      background-color: #fff;
+      color: $purple;
+      transition: .3s ease;
+    }
+  }
+}
+
 .separator {
   height: 80px;
   width: 1px;
@@ -320,6 +348,12 @@
 .mapboxgl-popup-content {
   text-align: center;
 }
+
+
+.image-url {
+  width: 100px;
+  height: 100px;
+  display: flex;
 
 .delete {
   text-decoration: none;
@@ -351,4 +385,5 @@
   font-family: $headers-font;
   font-weight: 600;
   font-size: 16px;
+
 }
