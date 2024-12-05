@@ -129,6 +129,8 @@
   }
 }
 
+
+
 .description {
   width: 100vw;
   background-color: rgba(255, 255, 255, .8);
@@ -231,7 +233,7 @@
   color: $green;
 }
 
-.project-content {
+.project-body {
   padding-top: 44px;
   // height: 90vh;
   width: 80vw;
@@ -354,6 +356,7 @@
   width: 100px;
   height: 100px;
   display: flex;
+}
 
 .delete {
   text-decoration: none;
@@ -400,4 +403,77 @@
   font-size: 16px;
 
 }
+
+//carousel
+
+.carousel-container {
+  text-align: center;
+  margin-top:10px;
+}
+
+.carousel2 {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width:100%;
+
+  ul {
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin-inline: 5px;
+  }
+
+  li{
+    display: inline;
+  }
+
+  img {
+    height: 260px;
+    width: 390px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px rgba(147, 125, 125, 0.527);
+  }
+
+  h6 {
+    text-align: left;
+    margin-left:5px;
+  }
+}
+
+.wrapper {
+  position: relative;
+  margin-inline: 40px;
+  margin-top:15px;
+
+  i {
+    position: absolute;
+    top:45%;
+    transform: translateY(-50%);
+    background: #fff;
+    height: 35px;
+    width:35px;
+    line-height: 35px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  i:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 0.2s;
+  }
+
+  i:first-child {
+    left: -20px;
+  }
+  i:last-child {
+    right: -20px;
+  }
+}
+
+.wrapper .carousel2 {
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
 }
