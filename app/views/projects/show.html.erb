@@ -7,9 +7,9 @@
 
 
 <div class="regen-btn">
-  <h6>Don't love it?</h6>
+  <h6>Don't love this idea?</h6>
   <%= link_to project_generate_path(@project), data: { turbo_method: :post } do  %>
-    <button class="button-green">Try again!</button>
+    <button class="button-green">Generate new one</button>
   <% end %>
 </div>
 
@@ -85,14 +85,6 @@
         <% end %>
       </ul>
     </div>
-
-    <section class="map">
-    <h4 class= "map-title">Nearest garden centres in <%= @project.location.capitalize%>:</h4>
-    <div style="height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </section>
   </div>
 
   <div class="separator"></div>
@@ -105,6 +97,14 @@
       <% end %>
     </ol>
   </div>
+</section>
+
+<section class="map">
+    <h4 class= "map-title">Garden centres in <%= @project.location.capitalize%></h4>
+    <div id="map" style="height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </section>
 
 

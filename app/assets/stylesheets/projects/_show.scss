@@ -2,7 +2,7 @@
   position: fixed;
   right: 10vw;
   bottom: 6vh;
-  width: 200px;
+  width: 210px;
   height: 58px;
   backdrop-filter: blur(6px);
   background-color: rgba(255,255,255, .8);
@@ -29,6 +29,7 @@
     opacity: 0%;
     border: none;
     width: 95%;
+    padding: 10px 26px;
 
     &:hover {
       opacity: 100%;
@@ -130,6 +131,8 @@
 
 .description {
   width: 100vw;
+  background-color: rgba(255, 255, 255, .8);
+  color: #333;
   border-top: 2px dashed $green;
   border-bottom: 2px dashed $green;
 
@@ -232,11 +235,12 @@
   padding-top: 44px;
   // height: 90vh;
   width: 80vw;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  border-bottom: 1px dashed $green;
 
   .items {
     width: 700px;
@@ -258,6 +262,10 @@
         border-top: 1px dashed $green;
         margin: 14px 5px 5px 10px;
         padding-top: 8px;
+
+        &:first-child {
+          border: none;
+        }
       }
     }
   }
@@ -292,17 +300,18 @@
 }
 
 .map {
-  text-align: left;
-  margin-left: 12px;
-  margin-bottom: 15px;
-  max-width: 800px;
+  text-align: center;
+  width: 100vw;
+
+  #map {
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+  }
 }
 
 .map-title {
-  margin-bottom: 5px;
-  text-align: left;
-  margin-left: 0 !important;
-  margin-top:25px;
+  bottom: 0;
+  margin: 16px 0;
 }
 
 .mapboxgl-popup {
@@ -320,11 +329,8 @@
   }
 }
 
-
-
 .progresses {
   width: 80vw;
-  border-top: 2px dashed $green;
   padding-top: 32px;
 }
 
