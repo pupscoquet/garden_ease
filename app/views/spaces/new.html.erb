@@ -17,7 +17,7 @@
         <%= check_box_tag 'selected_spaces[]', space.id, id: unique_id, class: 'checkbox' %>
         <%= label_tag unique_id, space.type_of_space %>
       <% end %><br>
-      <%= form.text_area :spaces_input, placeholder: "Type other qualities here..." %>
+      <%= form.text_field :spaces_input, placeholder: "Type other qualities here..." %>
     </fieldset>
     <%= submit_tag "Next", class: "button-purple selected-btn" %>
   <% end %>
