@@ -1,5 +1,6 @@
 <% content_for :head do %>
   <meta property="og:title" content="GardenEase">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="<%= asset_url(@project.picture) %>">
   <meta property=”og:url” content="<%= project_results_url(@project) %>">
   <meta property=”og:description” content="<%= @project.standfirst %>">
