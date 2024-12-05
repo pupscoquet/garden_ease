@@ -72,56 +72,69 @@
   </section>
 
   <section class="project-content">
-    <div class="items">
-      <div class="lists">
-        <div class="list">
-          <h4>Items needed</h4>
-          <ul>
-            <% @project.items.each do |item| %>
-              <li><%= item.capitalize %></li>
-            <% end %>
-          </ul>
-        </div>
 
-        <div class="list">
-          <h4>Plants you can use</h4>
-          <ul>
-            <% @project.plants.each do |plant| %>
-              <li><%= plant.capitalize %>
-              <img class="image-url"
-                src="<%= plants_image_generator_path(keyword: plant)%>"
-                alt="<%= plant %>">
+    <div class="carousel-container">
+      <h4>Plants you could grow for your project</h4>
+      <div data-controller="carousel" class="wrapper">
+        <i data-carousel-target="left" data-action="click->carousel#left" class="fa-solid fa-less-than"></i>
+        <div class="carousel2" data-carousel-target="carousel">
+          <% @project.plants.each_with_index do |plant,i|%>
+            <ul>
+              <li>
+                <div class="plant-container2">
+                  <img
+                    src="<%= plants_image_generator_path(keyword: plant)%>"
+                    alt="<%= plant %>">
+                </div>
+                <h6 class="plant-name"><%= plant.capitalize %></h6>
               </li>
-            <% end %>
-          </ul>
+            </ul>
+          <%end%>
         </div>
+        <i data-carousel-target="right" data-action="click->carousel#right"  class="fa-solid fa-greater-than"></i>
       </div>
-
-      <section class="map">
-        <h4 class= "map-title">Nearest florists in <%= @project.location.capitalize%>:</h4>
-        <div style="height: 400px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      </section>
     </div>
 
-    <div class="separator"></div>
 
-    <div class="method">
-      <h4>Method</h4>
-      <ol>
-        <% @project.method.each do |step| %>
-          <li><%= step.capitalize %></li>
-        <% end %>
-      </ol>
+    <div class="project-body">
+      <div class="items">
+        <div class="lists">
+          <div class="list">
+            <h4>Items needed</h4>
+            <ul>
+              <% @project.items.each do |item| %>
+                <li><%= item.capitalize %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
 
-      <div id="saved-btn">
-        <% if current_user.projects.include?(@project) == false %>
-          <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
-        <% else %>
-          <p>Saved</p>
-        <% end %>
+        <section class="map">
+          <h4 class= "map-title">Nearest florists in <%= @project.location.capitalize%>:</h4>
+          <div style="height: 400px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </section>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="method">
+        <h4>Method</h4>
+        <ol>
+          <% @project.method.each do |step| %>
+            <li><%= step.capitalize %></li>
+          <% end %>
+        </ol>
+
+        <div id="saved-btn">
+          <% if current_user.projects.include?(@project) == false %>
+            <%= link_to "Save in my projects", project_my_saved_projects_path, class: "button-purple selected-btn" %>
+          <% else %>
+            <p>Saved</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </section>

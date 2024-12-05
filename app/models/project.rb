@@ -54,7 +54,7 @@ class Project < ApplicationRecord
                   An unordered list of the method - max 1000 words, no headings,
                   put a '|' and <br> between each step.
                   A fun fact about it - max 20 words.
-                  A broken down bulleted list of 4 plants that are mentioned
+                  A broken down bulleted list of 7 plants that are mentioned
                   for  my project, put a '|' between each plant.
 
 
