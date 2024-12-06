@@ -1,3 +1,14 @@
+@keyframes grow {
+  0% {top: -150px; opacity: 0%; transform: scaleY(0);}
+  100% {top: -245px; opacity: 100%; transform: scaleY(1);}
+}
+
+@keyframes leafanimation {
+  0% {transform:translate(-7px,-415px) rotate(0deg); opacity: 100%;}
+  80% {transform:translate(-10px,-415px) rotate(0deg); opacity: 80%;}
+  100% {transform:translate(-15px,-415px) rotate(2deg); opacity: 100%;}
+}
+
 .main-container {
   background-color: $yellow;
   height: 100vh;
@@ -15,13 +26,55 @@
 
 .main-title {
   position: relative;
+  font-weight: 600;
+  z-index: 3;
 }
 
 .welcome {
   position:absolute;
-  top:0%;
-  left: 12%;
+  top: 0%;
+  left: 12.5%;
   font-size: 40px;
+}
+
+.growing {
+  position:absolute;
+  width: 1100px;
+  left: -110px;
+}
+
+#growing-a {
+  z-index: 2;
+  opacity: 0;
+  animation: grow 1s ease 1.5s forwards;
+  animation: leafanimation 5s linear 8s infinite alternate;
+}
+
+#growing-b {
+  z-index: 1;
+  opacity: 0;
+  animation: grow 1s ease 1.8s forwards;
+  // no leaf animation on this one
+}
+
+#growing-c {
+  z-index: 2;
+  opacity: 0;
+  animation: grow 1s ease 3s forwards;
+}
+
+#growing-d {
+  z-index: 2;
+  opacity: 0;
+  animation: grow 1s ease 5s forwards;
+}
+
+#growing-e {
+  z-index: 1;
+  opacity: 0;
+  animation: grow 1s ease 8s forwards;
+  animation: leafanimation 8s linear 10s infinite alternate-reverse;
+
 }
 
 .line {
@@ -29,8 +82,8 @@
 }
 
 .presentation {
-  margin-top:10px;
   margin-bottom: 50px;
+  font-size: 20px;
 }
 
 
