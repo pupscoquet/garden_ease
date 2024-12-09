@@ -147,8 +147,8 @@
         <div class="image-container">
           <img class="progress-photo" src="<%= cl_image_path(progress.photo.key) %>" alt="Progress photo">
         </div>
-        <h5 class="progress-date"><%= progress.created_at.strftime(' %e %B %y - %l:%M') %></h5>
-        <p><%= progress.description %></p>
+        <h5 class="progress-date"><%= progress.description %></h5>
+        <p><%= progress.description(' %e %B %y - %l:%M') %></p>
         <%= link_to progress_path(progress), class: 'delete', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <p>&#128465; Delete</p>
         <% end %>
