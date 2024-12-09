@@ -1,32 +1,39 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-.about-container {
-  overflow: hidden;
-  height: 90vh;
-  width: 100vw;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .left {
-    width: 30%;
-    margin-left: 10vw;
-
-    .about-p {
-      margin-top: 20px;
-    }
-  }
-
-  .btn {
-    margin-top: 20px;
-  }
-
-  .right {
-    width: 55%;
+@media only screen and (min-width: 1200px) {
+  .about-container {
     overflow: hidden;
+    height: 90vh;
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-    .plant {
-      width: 1400px;
+    .left {
+      width: 30%;
+      margin-left: 10vw;
+
+      .about-p {
+        margin-top: 20px;
+      }
+
+      .button-purple {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    }
+
+    h3 {
+      font-size: 64px;
+    }
+
+    .right {
+      width: 55%;
+      overflow: hidden;
+
+      .plant {
+        width: 1400px;
+      }
     }
   }
 }
@@ -34,70 +41,60 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .about-container {
+    overflow: hidden;
+    height: 90vh;
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     .left {
+      width: 40%;
+      margin-left: 10vw;
+
       .button-purple {
         font-size: 18px;
       }
     }
 
+    .right {
+      width: 60%;
+    }
+
     h3 {
-      font-size: 52px !important;
+      font-size: 52px;
     }
   }
 }
 
 
-// /* Extra small devices (phones, 600px and down) */
-// @media only screen and (max-width: 600px) {
-//   .left {
-//     position: absolute;
-//     left: 2%;
-//     width: 300px;
-//     margin: 28px auto 0 auto;
-//     overflow: hidden;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+  .about-container {
+    overflow: hidden;
+    width: 80vw;
+    margin: 0 auto;
 
-//     .about-us {
-//       font-size: 52px !important;
-//     }
-//     #about{
-//       margin-top: 20px;
-//     }
-//   }
+    .left {
+      width: 80%;
 
-//   .plant {
-//     display: none;
-//   }
-// }
+      .button-purple {
+        margin-top: 32px;
+      }
+    }
 
+    h3 {
+      font-size: 32px !important;
+    }
 
+    .right {
+      display: none;
+    }
 
-
-
-
-//
-// @media only screen and (min-width: 1200px) {
-
-//   .left {
-//     left: 2%;
-//     width: 45%;
-//     height: 100%;
-
-//     .about-us {
-//       font-size: 110px !important;
-//     }
-
-//     .btn {
-//       margin-top: 20px;
-//     }
-
-//     .right {
-//       width: 55%;
-//       height: 100%;
-//     }
-
-//     .plant {
-//       width: 1400px;
-//       left: 50%;
-//     }
-//   }
-// }
+    .button-purple {
+      font-size: 14px;
+      margin: -12px 0 20px 0 !important;
+    }
+  }
+}
