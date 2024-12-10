@@ -50,7 +50,7 @@
     justify-content: space-between;
 
     .left {
-      width: 40%;
+      width: 65%;
       margin-left: 10vw;
 
       .button-purple {
@@ -62,8 +62,12 @@
       width: 60%;
     }
 
+    .plant {
+      width: 1200px;
+    }
+
     h3 {
-      font-size: 52px;
+      font-size: 48px;
     }
   }
 }
@@ -94,7 +98,7 @@
 
     .button-purple {
       font-size: 14px;
-      margin: -12px 0 20px 0 !important;
+      margin: 8px 0 20px 0 !important;
     }
   }
 }
