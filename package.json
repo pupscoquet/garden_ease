@@ -1,0 +1,29 @@
+{
+  "name": "garden_ease",
+  "version": "1.0.0",
+  "description": "Your guide to a simple, personalised garden.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pupscoquet/garden_ease.git"
+  },
+  "keywords": [
+    "gardening",
+    "personalised",
+    "accessible"
+  ],
+  "author": "Victoria Coquet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pupscoquet/garden_ease/issues"
+  },
+  "homepage": "https://github.com/pupscoquet/garden_ease#readme"
+}
