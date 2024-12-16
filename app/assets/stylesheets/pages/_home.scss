@@ -4,16 +4,15 @@
 }
 
 @keyframes wind {
-  0% {transform:translate(-7px,-415px) rotate(0deg); opacity: 100%;}
-  80% {transform:translate(-10px,-415px) rotate(0deg); opacity: 80%;}
-  100% {transform:translate(-15px,-415px) rotate(6deg); opacity: 100%;}
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(6deg);}
 }
 
 
 .home-container {
   height: 80vh !important;
   width: 100vw !important;
-  margin: 80px auto 0 auto;
+  margin: 30vh auto 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +20,7 @@
 }
 
 .home-title {
-  margin-top: -20%;
+  margin-top: -10%;
   position: relative;
   text-align: center;
 }
@@ -51,7 +50,7 @@
   left: 440px;
   top: -245px;
   transform: translateX(-50%);
-  // animation: wind 5s ease 1.5s infinite alternate;
+  // animation: wind 5s ease infinite alternate;
 }
 
 .growing {
@@ -155,6 +154,10 @@
       width: 180px;
       font-size: 12px;
     }
+  }
+
+  .home-container {
+    margin: 20vh auto 0 auto;
   }
 
   .leaf-container {
