@@ -10,15 +10,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     @items = @project.items
 
-
     # map
     @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
     @markers = @projects.geocoded.map do |project|
       {
         lat: @project.latitude,
-        lng: @project.longitude,
+        lng: @project.longitude
       }
     end
+
     @markers += @florists.geocoded.map do |florist|
       {
         lat: florist.latitude,
