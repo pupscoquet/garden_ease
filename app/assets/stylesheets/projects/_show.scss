@@ -39,7 +39,7 @@
   }
 
   .project-title {
-    height: 70vh;
+    // height: 70vh;
     width: 80vw;
     margin: 0 auto 40px auto;
     display: flex;
@@ -75,6 +75,7 @@
         height: 180px;
         width: 180px;
         color: #fff;
+        margin-top: 24px;
         border-radius: 50%;
         transform: rotate(-7deg);
         box-shadow: 7px 3px 0px 8px $light-green;
@@ -249,16 +250,10 @@
     .items {
       width: 700px;
 
-      // .lists{
-      //   align-items: stretch;
-      //   display: flex;
-      // }
-
-      .list{
+      .list {
         width: 240px;
         display: inline-block;
         margin-right: 30px;
-
       }
 
       h4 {
@@ -528,10 +523,6 @@
       }
     }
 
-    #download-btn {
-      display: none;
-    }
-
     .image-container {
       width: 80vw;
       height: 280px;
@@ -540,33 +531,59 @@
       border: 6px solid #fff;
     }
 
-    .description {
-      p { width: 90% !important; }
-    }
-
     .fun-fact {
       display: none !important;
     }
   }
+
+  #download-btn {
+    display: none;
+  }
+
+  .description {
+    p { width: 100% !important; }
+  }
+
   .project-body {
     flex-direction: column;
+    padding-top: 0px;
 
     .items {
       width: 80vw;
       margin: 0 auto;
 
+      h4 {
+        margin: 0 !important;
+        font-size: 24px;
+      }
+
       .list {
         width: 100%;
+        margin-right: 0px;
+      }
+
+      ul {
+        width: 100%;
+      }
+
+      li {
+        width: 100% !important;
+        margin: 14px 0px 0px 0px !important;
       }
     }
 
-    .separator {
-      display: none;
-    }
+    .separator {display: none;}
 
     .method {
       width: 80vw;
+      margin-top: 24px;
+      padding-left: 2vw;
+
+      h4 { margin: 24px 0 0 -10px; font-size: 24px;}
     }
   }
 
+  .share-btns {
+    width: 100%;
+  }
 }
