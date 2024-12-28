@@ -135,8 +135,8 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </section>
 
-<% if current_user&.projects&.include?(@project) %>
-  <div class="progresses">
+<div class="progresses">
+  <% if current_user&.projects&.include?(@project) %>
     <h4 class="progresses-title">My progress</h4>
     <ul class="projects-ul">
       <% @project.progresses.each do |progress| %>
@@ -165,8 +165,12 @@
         <button class="button-green new-progress">New progress</button>
       <% end %>
     <% end %>
-  </div>
-<% end %>
+  <% else %>
+    <%= link_to project_my_saved_projects_path do %>
+      <button class="button-green">Add to your projects</button>
+    <% end %>
+  <% end %>
+</div>
 
   <div class="separator"></div>
 </div>
