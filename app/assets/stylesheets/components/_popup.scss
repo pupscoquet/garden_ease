@@ -13,7 +13,7 @@
 
   h3 {
     margin: 140px 0 0 2vw;
-    font-size: 44px !important;
+    font-size: 44px;
     width: 50%;
   }
 }
@@ -84,13 +84,17 @@
 
 @media only screen and (max-width: 768px) {
   .selected-title {
-    margin: -24px auto 0 auto !important;
+    margin: -44px auto 0 auto !important;
   }
 
-  h3 {
-    font-size: 32px !important;
-    // text-align: center;
-    // margin: 0 auto;
+  .flex-popup {
+    margin-top: -120px;
+    flex-direction: column;
+
+    #popup-title {
+      font-size: 28px !important;
+      width: 100%;
+    }
   }
 
   .sidebar {display: none;}
@@ -99,10 +103,13 @@
     display: hidden;
   }
 
-  .flex-popup {flex-direction: column;}
-
   .tree {
-    margin-top: 220px;
-    height: 60vh;
+    margin-top: 0px;
+    height: 70vh;
+  }
+
+  .loader:before {
+    top: 26vh;
+    right: 38vw;
   }
 }
