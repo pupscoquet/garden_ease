@@ -24,7 +24,6 @@ class Project < ApplicationRecord
     s_id = self.selected_spaces
     s_id.each do |space|
       selected_space = Space.find(space)
-
       space_string = selected_space.type_of_space
       selected_spaces << space_string
     end
@@ -58,14 +57,11 @@ class Project < ApplicationRecord
                   for  my project, put a '|' between each plant and don't use
                   brackets.
 
-
-
                   When generating the above, generate response in British
                   English and assume I don't know terms like 'proper drainage',
                   'trellis' or 'mulch' and that I'd need an explanation of how
                   to do things like sow seeds in pots. Leave out all special
                   characters like #, *, /.
-
 
                   I need this to be generated as follows:
                   / your generated response for name
@@ -77,10 +73,10 @@ class Project < ApplicationRecord
                   / your generated response for method
                   / your generated response for fun fact
                   / your generated response for plants
+                  / your generated response for garden centres
                   "
                   }]
     })
-
 
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
@@ -93,6 +89,9 @@ class Project < ApplicationRecord
 
     plants = split_content[9]
     split_plants = plants.split('|').map(&:strip)
+
+    
+
 
     self.name = split_content[1]
     self.description = split_content[5]
