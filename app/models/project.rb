@@ -90,21 +90,7 @@ class Project < ApplicationRecord
     plants = split_content[9]
     split_plants = plants.split('|').map(&:strip)
 
-    # export project.location to florist controller
-    # get chatgpt to get a list of florists with location as below
-    # The names and addresses of 7 garden centres in #{project.location}.
-    # I need each garden center separated with a '|' and a '*' after
-    # each name.
-
-    # split generated response as below
-
-    # garden_centres = split_content[10]
-    # garden_centre = garden_centres.split('|').map.(&:strip)
-
-    # garden_one = garden_centre[0].split('*')
-    # Florist.create!(name: garden_one[0], address: garden_one[1])
-
-    # 
+    
 
 
     self.name = split_content[1]

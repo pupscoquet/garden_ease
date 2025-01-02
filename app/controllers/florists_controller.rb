@@ -1,0 +1,2 @@
+class FloristsController < ApplicationController
+end
