@@ -62,8 +62,7 @@ class ProjectsController < ApplicationController
 
     # map
     @florists = Florist.near([@project.latitude, @project.longitude], 10).geocoded
-    @markers = @projects.geocoded.map do |project|
-      {
+    @markers = @projects.geocoded.map do |project|      {
         lat: @project.latitude,
         lng: @project.longitude
       }
