@@ -35,6 +35,8 @@ class ProjectsController < ApplicationController
                   }]
     })
 
+    # TODO find map / garden api
+
     garden_centres = chatgpt_response["choices"][0]["message"]["content"]
     split_centres = garden_centres.split('*')
 
@@ -48,6 +50,8 @@ class ProjectsController < ApplicationController
     eight = split_centres[7].split('/').map(&:strip)
     nine = split_centres[8].split('/').map(&:strip)
     ten = split_centres[9].split('/').map(&:strip)
+
+    Florist.destroy_all
 
     Florist.create!(name: one[0], address: one[1], longitude: one[3], latitude: one[2])
     Florist.create!(name: two[0], address: two[1], longitude: two[3], latitude: two[2])
