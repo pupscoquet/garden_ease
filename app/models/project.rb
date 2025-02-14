@@ -77,6 +77,7 @@ class Project < ApplicationRecord
                   "
                   }]
     })
+                    # TODO: parse to json
 
     new_content = chatgpt_response["choices"][0]["message"]["content"]
 
@@ -90,7 +91,7 @@ class Project < ApplicationRecord
     plants = split_content[9]
     split_plants = plants.split('|').map(&:strip)
 
-    
+
 
 
     self.name = split_content[1]
